@@ -1,24 +1,24 @@
-import useCarousel from '../../hooks/useCarousel'
-import { homeSlides } from '../../data/site'
-import { cn } from '../../utils/cn'
-import Button from '../ui/Button'
-import { SliderArrow, SliderDots } from '../ui/SliderControls'
+import useCarousel from "../../hooks/useCarousel";
+import { homeSlides } from "../../data/site";
+import { cn } from "../../utils/cn";
+import Button from "../ui/Button";
+import { SliderArrow, SliderDots } from "../ui/SliderControls";
 
 function HeroSlide({ slide, active, first }) {
-  const Heading = first ? 'h1' : 'h2'
+  const Heading = first ? "h1" : "h2";
   return (
     <div
       aria-hidden={!active}
       className={cn(
-        'absolute inset-0 flex items-center transition-opacity duration-700',
-        active ? 'z-[1] opacity-100' : 'pointer-events-none opacity-0',
+        "absolute inset-0 flex items-center transition-opacity duration-700",
+        active ? "z-[1] opacity-100" : "pointer-events-none opacity-0",
       )}
     >
       <img
         src={slide.image}
         alt=""
-        loading={first ? 'eager' : 'lazy'}
-        fetchPriority={first ? 'high' : 'auto'}
+        loading={first ? "eager" : "lazy"}
+        fetchpriority={first ? "high" : "auto"}
         className="absolute inset-0 size-full object-cover"
       />
       <div className="absolute inset-0 bg-[linear-gradient(270deg,rgba(20,20,20,.86)_0%,rgba(20,20,20,.65)_43%,rgba(20,20,20,.08)_100%)]" />
@@ -40,18 +40,24 @@ function HeroSlide({ slide, active, first }) {
             <Button to={slide.primary.to} icon={slide.primary.icon}>
               {slide.primary.label}
             </Button>
-            <Button to={slide.secondary.to} icon={slide.secondary.icon} variant="outline">
+            <Button
+              to={slide.secondary.to}
+              icon={slide.secondary.icon}
+              variant="outline"
+            >
               {slide.secondary.label}
             </Button>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default function HeroSlider() {
-  const { index, next, prev, goTo, hoverProps } = useCarousel({ length: homeSlides.length })
+  const { index, next, prev, goTo, hoverProps } = useCarousel({
+    length: homeSlides.length,
+  });
 
   return (
     <section
@@ -63,7 +69,12 @@ export default function HeroSlider() {
     >
       <div className="relative h-[480px] overflow-hidden sm:h-[500px] lg:h-[570px]">
         {homeSlides.map((slide, i) => (
-          <HeroSlide key={slide.image} slide={slide} active={i === index} first={i === 0} />
+          <HeroSlide
+            key={slide.image}
+            slide={slide}
+            active={i === index}
+            first={i === 0}
+          />
         ))}
 
         <div className="pointer-events-none absolute inset-0 z-[3] flex items-center justify-between px-[2%]">
@@ -79,5 +90,5 @@ export default function HeroSlider() {
         />
       </div>
     </section>
-  )
+  );
 }

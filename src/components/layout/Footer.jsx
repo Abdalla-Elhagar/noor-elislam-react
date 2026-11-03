@@ -7,6 +7,7 @@ import {
 } from "../../data/site";
 import Icon from "../ui/Icon";
 import SmartLink from "../ui/SmartLink";
+import { useEffect, useRef, useState } from "react";
 
 function FooterTitle({ children }) {
   return (
@@ -41,6 +42,25 @@ const contactRows = [
 ];
 
 export default function Footer() {
+  const devRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = devRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <footer
       id="contact"
@@ -103,11 +123,59 @@ export default function Footer() {
         </section>
       </div>
 
-      <div className="mt-[45px] border-t border-[#444] py-[22px] text-center text-xs text-[#bcbcbc]">
-        <div className="container-x">
-          جميع الحقوق محفوظة ©{" "}
-          <span className="text-[#dfbd63]">{brand.name}</span>{" "}
-          <span className="text-[#dfbd63]">{new Date().getFullYear()}</span>
+      <div className="relative mt-[45px] py-[22px] text-center text-xs text-[#bcbcbc]">
+        {/* خط ذهبي متحرك فوق الفوتر */}
+        <span className="footer-line" aria-hidden="true" />
+
+        <div
+          ref={devRef}
+          className={`container-x flex flex-col items-center gap-4 ${inView ? "is-visible" : ""}`}
+        >
+          {/* حقوق النشر */}
+          <div className="fx-item" style={{ "--d": "0ms" }}>
+            جميع الحقوق محفوظة ©{" "}
+            <span className="text-[#dfbd63]">{brand.name}</span>{" "}
+            <span className="text-[#dfbd63]">{new Date().getFullYear()}</span>
+          </div>
+
+          {/* تم التطوير بواسطة */}
+          <a
+            href="https://www.facebook.com/share/19f776rgzv"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="dev-credit group fx-item"
+            style={{ "--d": "250ms" }}
+          >
+            {/* مكان اللوجو */}
+            <span className="dev-logo-wrap">
+              <span className="dev-ring" aria-hidden="true" />
+              <span className="dev-logo">
+                {/* بدّل الحرف ده بصورة اللوجو:
+                <img src="/logo-rief.png" alt="Rief Code" className="h-full w-full object-contain" /> */}
+                R
+              </span>
+            </span>
+
+            <span className="dev-text">
+              تم التطوير بواسطة <span className="dev-name">Rief Code</span>{" "}
+              للبرمجيات
+            </span>
+
+            <svg
+              className="dev-arrow"
+              viewBox="0 0 24 24"
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M17 7L7 17M7 7h10v10" />
+            </svg>
+          </a>
         </div>
       </div>
     </footer>

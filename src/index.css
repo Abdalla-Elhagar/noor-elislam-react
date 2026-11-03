@@ -18,7 +18,7 @@
     cursor: pointer;
   }
   :focus-visible {
-    outline: 2px solid theme('colors.gold.DEFAULT');
+    outline: 2px solid theme("colors.gold.DEFAULT");
     outline-offset: 2px;
   }
 }
@@ -40,5 +40,200 @@
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+/* ===== الخط الذهبي المتحرك فوق الفوتر ===== */
+.footer-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #444;
+  overflow: hidden;
+}
+.footer-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, #dfbd63, transparent);
+  animation: lineSweep 4s ease-in-out infinite;
+}
+@keyframes lineSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+/* ===== الظهور المتتابع ===== */
+.fx-item {
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  filter: blur(6px);
+}
+.is-visible .fx-item {
+  animation: fxIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes fxIn {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+/* ===== الكارت ===== */
+.dev-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 16px 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(223, 189, 99, 0.18);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+  transition:
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+.dev-credit:hover {
+  border-color: rgba(223, 189, 99, 0.6);
+  background: rgba(223, 189, 99, 0.07);
+  box-shadow: 0 6px 24px -6px rgba(223, 189, 99, 0.35);
+  transform: translateY(-2px);
+}
+
+/* ===== اللوجو + الحلقة الدوّارة ===== */
+.dev-logo-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+}
+.dev-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #dfbd63,
+    transparent 40%,
+    #fff3c4 70%,
+    #dfbd63
+  );
+  animation: ringSpin 3s linear infinite;
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 2px),
+    #000 calc(100% - 1.5px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 2px),
+    #000 calc(100% - 1.5px)
+  );
+}
+.dev-logo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #1f1f1f;
+  color: #dfbd63;
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: logoFloat 3s ease-in-out infinite;
+}
+.dev-credit:hover .dev-logo {
+  transform: rotate(360deg) scale(1.12);
+}
+@keyframes ringSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes logoFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -2px;
+  }
+}
+
+/* ===== النص + لمعة على الاسم ===== */
+.dev-text {
+  color: #bcbcbc;
+  transition: color 0.3s ease;
+}
+.dev-credit:hover .dev-text {
+  color: #fff;
+}
+.dev-name {
+  font-weight: 700;
+  background: linear-gradient(110deg, #dfbd63 30%, #fff6d1 50%, #dfbd63 70%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: nameShine 3.2s ease-in-out infinite;
+}
+@keyframes nameShine {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -50% 0;
+  }
+}
+
+/* ===== السهم ===== */
+.dev-arrow {
+  color: #dfbd63;
+  opacity: 0;
+  transform: translate(6px, -6px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.dev-credit:hover .dev-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+/* لأن الصفحة RTL، السهم بيتعكس */
+[dir="rtl"] .dev-arrow {
+  transform: translate(-6px, -6px) scaleX(-1);
+}
+[dir="rtl"] .dev-credit:hover .dev-arrow {
+  transform: translate(0, 0) scaleX(-1);
+}
+
+/* ===== تقليل الحركة ===== */
+@media (prefers-reduced-motion: reduce) {
+  .fx-item {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none !important;
+  }
+  .footer-line::after,
+  .dev-ring,
+  .dev-logo,
+  .dev-name {
+    animation: none;
   }
 }
