@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+  }
+  body {
+    @apply bg-cream font-sans text-ink antialiased overflow-x-hidden;
+  }
+  a,
+  button {
+    font: inherit;
+  }
+  button {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid theme('colors.gold.DEFAULT');
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-[min(100%-30px,1320px)] sm:w-[min(100%-40px,1320px)] min-[1500px]:w-[min(100%-80px,1440px)];
+  }
+  .btn-gold-gradient {
+    @apply bg-gradient-to-br from-gold-bright to-[#b88a20] text-white transition duration-300
+      hover:-translate-y-0.5 hover:from-gold-deep hover:to-gold-dark;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
