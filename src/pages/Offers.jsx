@@ -1,4 +1,3 @@
-
 import { useMemo, useState } from "react";
 
 import OffersHero from "../components/offers/OffersHero";
@@ -14,17 +13,15 @@ import { categories, getProductCartId, products } from "../data/products";
 
 const offerItems = offers.map((offer) => {
   const product = products.find(
-    (p) => String(p.id) === String(offer.productId)
+    (p) => String(p.id) === String(offer.productId),
   );
 
-  const category = categories.find(
-    (c) => c.id === product?.category
-  );
+  const category = categories.find((c) => c.id === product?.category);
 
   const price = Number(offer.price) || 0;
 
   const oldPrice = Number(
-    offer.oldPrice ?? product?.oldPrice ?? product?.price ?? 0
+    offer.oldPrice ?? product?.oldPrice ?? product?.price ?? 0,
   );
 
   const discount =
@@ -54,17 +51,14 @@ export default function Offers() {
     return offerItems.filter((offer) => {
       if (filter === "all") return true;
 
-      return (
-        Array.isArray(offer.filters) &&
-        offer.filters.includes(filter)
-      );
+      return Array.isArray(offer.filters) && offer.filters.includes(filter);
     });
   }, [filter]);
 
   return (
     <>
       <OffersHero />
-
+      {/* 
       <PromoFilters
         active={filter}
         onChange={setFilter}
@@ -141,7 +135,7 @@ export default function Offers() {
             </EmptyState>
           )}
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

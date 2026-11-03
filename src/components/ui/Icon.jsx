@@ -2,15 +2,18 @@ import {
   FaAppleWhole, FaArrowLeft, FaArrowUp, FaAward, FaBagShopping, FaBars, FaBolt,
   FaBorderAll, FaBoxOpen, FaCapsules, FaCartShopping, FaCheck, FaChevronLeft,
   FaChevronRight, FaCircleCheck, FaCircleExclamation, FaCircleInfo, FaClock,
-  FaCrown, FaEnvelope, FaFacebookF, FaGift, FaHandshake, FaHeadset, FaInstagram,
-  FaKitMedical, FaLayerGroup, FaLeaf, FaLocationDot, FaMagnifyingGlass, FaPhone,
-  FaPlus, FaPumpSoap, FaShieldHeart, FaSpa, FaStar, FaTags, FaTiktok, FaTrash,
-  FaTruckFast, FaWandMagicSparkles, FaWhatsapp, FaXmark,
+  FaCrown, FaEnvelope, FaFacebookF, FaFaucetDrip, FaGift, FaHandshake, FaHeadset,
+  FaInstagram, FaKitMedical, FaLayerGroup, FaLeaf, FaLocationDot, FaMagnifyingGlass,
+  FaPhone, FaPlus, FaPumpSoap, FaShieldHeart, FaSink, FaSpa, FaStar, FaTags,
+  FaToilet, FaToiletPaper, FaBath, FaTiktok, FaTrash, FaTruckFast,
+  FaWandMagicSparkles, FaWhatsapp, FaXmark,
 } from 'react-icons/fa6'
 
 const icons = {
   all: FaBorderAll, apple: FaAppleWhole, arrow: FaArrowLeft, arrowUp: FaArrowUp,
   award: FaAward, bag: FaBagShopping, bars: FaBars, bolt: FaBolt, box: FaBoxOpen,
+  faucet: FaFaucetDrip, bathroomAccessories: FaToiletPaper, toilet: FaToilet,
+  sink: FaSink, basin: FaBath,
   capsules: FaCapsules, cart: FaCartShopping, check: FaCheck,
   chevronLeft: FaChevronLeft, chevronRight: FaChevronRight,
   checkCircle: FaCircleCheck, alert: FaCircleExclamation, info: FaCircleInfo,

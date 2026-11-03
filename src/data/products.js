@@ -4,7 +4,7 @@
 export const categories = [
   {
     id: "mixers",
-    icon: "soap",
+    icon: "faucet",
     label: "الخلاطات",
     hint: "خلاطات حوض ومطبخ ودش",
     title: "الخلاطات",
@@ -13,7 +13,7 @@ export const categories = [
   },
   {
     id: "accessories",
-    icon: "spa",
+    icon: "bathroomAccessories",
     label: "الاكسسوارات",
     hint: "أطقم اكسسوار",
     title: "أطقم الاكسسوار",
@@ -21,7 +21,7 @@ export const categories = [
   },
   {
     id: "ceramic",
-    icon: "medical",
+    icon: "toilet",
     label: "الصيني",
     hint: "أطقم حمام ومراحيض",
     title: "الصيني",
@@ -29,7 +29,7 @@ export const categories = [
   },
   {
     id: "sinks",
-    icon: "apple",
+    icon: "sink",
     label: "الحلة",
     hint: "أحواض مطبخ",
     title: "الحلة",
@@ -37,7 +37,7 @@ export const categories = [
   },
   {
     id: "basins",
-    icon: "capsules",
+    icon: "basin",
     label: "أحواض وحدة",
     hint: "أحواض حمام",
     title: "أحواض وحدة",
