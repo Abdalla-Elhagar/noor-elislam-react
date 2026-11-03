@@ -1,47 +1,89 @@
-import { useMemo, useState } from 'react'
-import OffersHero from '../components/offers/OffersHero'
-import PromoFilters from '../components/offers/PromoFilters'
-import ProductCard from '../components/product/ProductCard'
-import ProductGrid from '../components/product/ProductGrid'
-import EmptyState from '../components/ui/EmptyState'
-import SectionHeading from '../components/ui/SectionHeading'
-import { useCart } from '../context/CartContext'
-import { offers } from '../data/offers'
-import { getCategoryById, getProductById } from '../data/products'
 
-// دمج العرض مع بيانات المنتج الأصلي (الاسم/الصورة/القسم/السعر القديم/نسبة الخصم)
+import { useMemo, useState } from "react";
+
+import OffersHero from "../components/offers/OffersHero";
+import PromoFilters from "../components/offers/PromoFilters";
+import ProductCard from "../components/product/ProductCard";
+import ProductGrid from "../components/product/ProductGrid";
+import EmptyState from "../components/ui/EmptyState";
+import SectionHeading from "../components/ui/SectionHeading";
+
+import { useCart } from "../context/CartContext";
+import { offers } from "../data/offers";
+import { categories, products } from "../data/products";
+
 const offerItems = offers.map((offer) => {
-  const product = getProductById(offer.productId)
+  const product = products.find(
+    (p) => String(p.id) === String(offer.productId)
+  );
+
+  const category = categories.find(
+    (c) => c.id === product?.category
+  );
+
+  const price = Number(offer.price) || 0;
+
+  const oldPrice = Number(
+    offer.oldPrice ?? product?.oldPrice ?? product?.price ?? 0
+  );
+
+  const discount =
+    oldPrice > price && oldPrice > 0
+      ? Math.round(((oldPrice - price) / oldPrice) * 100)
+      : 0;
+
   return {
     ...offer,
     product,
-    categoryLabel: getCategoryById(product.category).label,
-    discount: Math.round(((product.price - offer.price) / product.price) * 100),
-  }
-})
+    title: product?.name || offer.name || "منتج",
+    image: product?.image || "",
+    categoryLabel:
+      category?.label ||
+      (offer.filters?.includes("pots") ? "الحلة" : "الخلاطات"),
+    price,
+    oldPrice,
+    discount,
+  };
+});
 
 export default function Offers() {
-  const [filter, setFilter] = useState('all')
-  const { addItem } = useCart()
+  const [filter, setFilter] = useState("all");
+  const { addItem } = useCart();
 
-  const visible = useMemo(
-    () => offerItems.filter((o) => filter === 'all' || o.filters.includes(filter)),
-    [filter],
-  )
+  const visible = useMemo(() => {
+    return offerItems.filter((offer) => {
+      if (filter === "all") return true;
+
+      return (
+        Array.isArray(offer.filters) &&
+        offer.filters.includes(filter)
+      );
+    });
+  }, [filter]);
 
   return (
     <>
       <OffersHero />
-      <PromoFilters active={filter} onChange={setFilter} />
 
-      <section id="offersProducts" className="pb-12 pt-[18px] md:pb-[70px] md:pt-[22px]">
+      <PromoFilters
+        active={filter}
+        onChange={setFilter}
+      />
+
+      <section
+        id="offersProducts"
+        className="pb-12 pt-[18px] md:pb-[70px] md:pt-[22px]"
+      >
         <div className="container-x">
           <SectionHeading
             icon="tags"
             title="عروض تستحق التجربة"
-            description="أسعار العرض موضحة بجوار السعر السابق لكل منتج"
+            description="استمتع بأفضل الأسعار والخصومات على منتجاتنا"
             action={
-              <span className="whitespace-nowrap text-xs font-bold text-gold-dark" aria-live="polite">
+              <span
+                className="whitespace-nowrap text-xs font-bold text-gold-dark"
+                aria-live="polite"
+              >
                 {visible.length} عروض
               </span>
             }
@@ -49,27 +91,51 @@ export default function Offers() {
 
           {visible.length > 0 ? (
             <ProductGrid layout="offers">
-              {visible.map((o) => (
+              {visible.map((offer) => (
                 <ProductCard
-                  key={o.id}
-                  image={o.product.image}
-                  alt={`عبوة ${o.product.name}`}
-                  category={o.categoryLabel}
-                  title={o.product.name}
-                  badge={{ text: `خصم ${o.discount}%`, tone: 'discount' }}
-                  stock={{ label: o.lowStock ? 'قطع محدودة' : 'متوفر', low: o.lowStock }}
-                  price={o.price}
-                  oldPrice={o.product.price}
+                  key={offer.id}
+                  image={offer.image}
+                  alt={`صورة ${offer.title}`}
+                  category={offer.categoryLabel}
+                  title={offer.title}
+                  badge={{
+                    text:
+                      offer.discount > 0
+                        ? `خصم ${offer.discount}%`
+                        : "عرض خاص",
+                    tone: "discount",
+                  }}
+                  stock={{
+                    label: offer.lowStock
+                      ? "قطع محدودة"
+                      : "متوفر",
+                    low: offer.lowStock,
+                  }}
+                  price={offer.price}
+                  oldPrice={
+                    offer.oldPrice > offer.price
+                      ? offer.oldPrice
+                      : undefined
+                  }
                   addLabel="أضف للسلة"
-                  onAdd={() => addItem({ id: o.id, name: o.product.name, price: o.price })}
+                  onAdd={() =>
+                    addItem({
+                      id: offer.product?.id ?? offer.id,
+                      name: offer.title,
+                      price: offer.price,
+                      image: offer.image,
+                    })
+                  }
                 />
               ))}
             </ProductGrid>
           ) : (
-            <EmptyState icon="tags">لا توجد منتجات ضمن هذا العرض حاليًا.</EmptyState>
+            <EmptyState icon="tags">
+              لا توجد منتجات ضمن هذا العرض حاليًا.
+            </EmptyState>
           )}
         </div>
       </section>
     </>
-  )
+  );
 }
