@@ -9,7 +9,6 @@ export const categories = [
     hint: "خلاطات حوض ومطبخ ودش",
     title: "الخلاطات",
     description: "خلاطات متنوعة للحوض والمطبخ والدش والباتيو",
-    
   },
   {
     id: "accessories",
@@ -54,7 +53,7 @@ export const products = [
     description: "الموديل: BC176AA",
     image: "../../public/img//proImg/pro1.jpeg",
   },
-    {
+  {
     id: 1111,
     category: "mixers",
     name: "     خلاط بانيو يوروستورم ",
@@ -62,7 +61,7 @@ export const products = [
     description: "الموديل:B7841AA ",
     image: "../../public/img//proImg/pro1111.jpeg",
   },
-      {
+  {
     id: 1111,
     category: "mixers",
     name: "    خلاط  يوروستورم حوض وش",
@@ -92,7 +91,7 @@ export const products = [
     name: "خلاط مطبخ معلق على الحائط - نيو سيرا فليكس",
     price: 4500,
     description: "الموديل: BC959AA",
-     image: "../../public/img//proImg/pro4.jpeg",
+    image: "../../public/img//proImg/pro4.jpeg",
   },
 
   {
@@ -109,7 +108,7 @@ export const products = [
     name: "خلاط مطبخ معلق - سليم لاين",
     price: 2950,
     description: "الموديل: B8599AA",
-     image: "../../public/img//proImg/pro6.jpeg",
+    image: "../../public/img//proImg/pro6.jpeg",
   },
   {
     id: 8,
@@ -117,7 +116,7 @@ export const products = [
     name: "خلاط باتيو - سليم لاين",
     price: 4820,
     description: "الموديل: B8587",
-     image: "../../public/img//proImg/pro7.jpeg",
+    image: "../../public/img//proImg/pro7.jpeg",
   },
   {
     id: 9,
@@ -230,7 +229,7 @@ export const products = [
     price: 3400,
     description:
       "الموديل: VNN148R44C. السعر قبل الخصم. ألوان أخرى: نيكل + اسود مط: 3850",
-     image: "../../public/img//proImg/pro22.jpeg",
+    image: "../../public/img//proImg/pro22.jpeg",
   },
   {
     id: 23,
@@ -238,11 +237,8 @@ export const products = [
     name: "خلاط - شكل + اسود",
     price: 1550,
     description: "الموديل: GMJ-M01.  ",
-   image: "../../public/img//proImg/pro23.jpeg",
-  }, 
- 
-
-
+    image: "../../public/img//proImg/pro23.jpeg",
+  },
 
   {
     id: 28,
@@ -251,7 +247,7 @@ export const products = [
     price: 4150,
     description: "الموديل: VQR168R31PA",
     image: "../../public/img//proImg/pro24.jpeg",
-  }, 
+  },
   {
     id: 29,
     category: "mixers",
@@ -268,8 +264,6 @@ export const products = [
     description: "الموديل: A6757AA",
     image: "../../public/img//proImg/pro26.jpg",
   },
-
-  
 
   // {
   //   id: 35,
@@ -479,7 +473,7 @@ export const products = [
     price: 1200,
     description:
       "يشمل: صيانة حوض - صيانة رف - ورقة - رف 50 سم - علاقة مفردة - فواطة بياموند",
-   image: "../../public/img//proImg/EX1.jpeg",
+    image: "../../public/img//proImg/EX1.jpeg",
   },
   {
     id: 62,
