@@ -1,5 +1,6 @@
 import { useToast } from '../../context/ToastContext'
 import { useCart } from '../../context/CartContext'
+import { contactInfo } from '../../data/site'
 import { formatPrice } from '../../utils/format'
 import Button from '../ui/Button'
 import Icon from '../ui/Icon'
@@ -33,12 +34,29 @@ export default function CartModal() {
   const { items, total, isOpen, closeCart, removeItem } = useCart()
   const { showToast } = useToast()
 
-  const handleCheckout = () =>
-    showToast(
-      items.length === 0
-        ? 'السلة فارغة، أضف منتجات أولًا'
-        : 'السلة جاهزة؛ اربط زر الطلب بنظام المبيعات',
-    )
+  const handleCheckout = () => {
+    if (items.length === 0) {
+      showToast('السلة فارغة، أضف منتجات أولًا')
+      return
+    }
+
+    const orderDetails = items
+      .map(
+        (item, index) =>
+          `${index + 1}. ${item.name}\n` +
+          `   الكمية: ${item.quantity}\n` +
+          `   سعر القطعة: ${formatPrice(item.price, 'ar-EG')}\n` +
+          `   الإجمالي: ${formatPrice(item.price * item.quantity, 'ar-EG')}`,
+      )
+      .join('\n\n')
+    const message =
+      `السلام عليكم، أرغب في طلب المنتجات التالية:\n\n${orderDetails}\n\n` +
+      `إجمالي الطلب: ${formatPrice(total, 'ar-EG')}\n` +
+      'يرجى تأكيد الطلب والتوصيل. شكرًا لكم.'
+    const whatsappUrl = `https://wa.me/${contactInfo.phone}?text=${encodeURIComponent(message)}`
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
+  }
 
   return (
     <Modal open={isOpen} onClose={closeCart} title="سلة المشتريات" icon="cart">
@@ -64,7 +82,7 @@ export default function CartModal() {
         متابعة الطلب
       </Button>
       <p className="mt-2 text-xs text-muted">
-        هذه سلة تجريبية؛ إتمام الطلب يحتاج ربط الموقع بنظام طلبات.
+        سيتم فتح واتساب برسالة تحتوي على المنتجات وإجمالي الطلب.
       </p>
     </Modal>
   )
