@@ -30,11 +30,21 @@ export default function Products() {
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState('all')
   const [sort, setSort] = useState('default')
+  const [priceRange, setPriceRange] = useState({ min: '', max: '' })
   const [currentPage, setCurrentPage] = useState(1)
   const [scrollTarget, setScrollTarget] = useState(null)
 
+  const minPrice = priceRange.min === '' ? null : Number(priceRange.min)
+  const maxPrice = priceRange.max === '' ? null : Number(priceRange.max)
+  const invalidPriceRange =
+    (minPrice !== null && (!Number.isFinite(minPrice) || minPrice < 0)) ||
+    (maxPrice !== null && (!Number.isFinite(maxPrice) || maxPrice < 0)) ||
+    (minPrice !== null && maxPrice !== null && minPrice > maxPrice)
+
   // تجميع المنتجات حسب الأقسام وتطبيق البحث والترتيب
   const groups = useMemo(() => {
+    if (invalidPriceRange) return []
+
     const q = normalizeArabic(query)
 
     return categories
@@ -42,15 +52,24 @@ export default function Products() {
       .map((c) => ({
         category: c,
         items: products
-          .filter(
-            (p) =>
+          .filter((p) => {
+            const price = Number(p.price)
+            const hasPrice =
+              p.price !== null &&
+              p.price !== undefined &&
+              Number.isFinite(price)
+
+            return (
               p.category === c.id &&
-              normalizeArabic(p.name).includes(q)
-          )
+              normalizeArabic(p.name).includes(q) &&
+              (minPrice === null || (hasPrice && price >= minPrice)) &&
+              (maxPrice === null || (hasPrice && price <= maxPrice))
+            )
+          })
           .sort(sorters[sort] || sorters.default),
       }))
       .filter((g) => g.items.length > 0)
-  }, [query, category, sort])
+  }, [query, category, sort, minPrice, maxPrice, invalidPriceRange])
 
   // جميع المنتجات المطابقة للفلاتر
   const filteredProducts = useMemo(() => {
@@ -86,7 +105,7 @@ export default function Products() {
   // إعادة الصفحة الأولى عند تغيير البحث أو القسم أو الترتيب
   useEffect(() => {
     setCurrentPage(1)
-  }, [query, category, sort])
+  }, [query, category, sort, priceRange])
 
   // تجميع المنتجات المعروضة حسب الأقسام
   const paginatedGroups = useMemo(() => {
@@ -174,6 +193,13 @@ export default function Products() {
             onCategory={setCategory}
             sort={sort}
             onSort={setSort}
+            priceRange={priceRange}
+            onPriceChange={(bound, value) =>
+              setPriceRange((current) => ({ ...current, [bound]: value }))
+            }
+            onResetPrices={() => setPriceRange({ min: '', max: '' })}
+            hasPriceFilter={priceRange.min !== '' || priceRange.max !== ''}
+            invalidPriceRange={invalidPriceRange}
           />
 
           {/* Products */}
@@ -189,10 +215,16 @@ export default function Products() {
             </div>
           ) : (
             <EmptyState
-              icon="box"
-              title="لا توجد منتجات مطابقة"
+              icon={invalidPriceRange ? 'alert' : 'box'}
+              title={
+                invalidPriceRange
+                  ? 'نطاق السعر غير صحيح'
+                  : 'لا توجد منتجات مطابقة'
+              }
             >
-              جرب البحث باسم مختلف أو اختر قسمًا آخر.
+              {invalidPriceRange
+                ? 'أدخل أسعارًا صحيحة واجعل الحد الأدنى أقل من أو يساوي الحد الأعلى.'
+                : 'جرب البحث باسم مختلف أو اختر قسمًا آخر.'}
             </EmptyState>
           )}
 
