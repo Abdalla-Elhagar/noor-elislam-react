@@ -862,5 +862,9 @@ export const products = [
   },
 ];
 
+export function getProductCartId(product) {
+  return `product-${product.id}-${product.name.trim()}`;
+}
+
 export const getProductById = (id) => products.find((p) => p.id === id);
 export const getCategoryById = (id) => categories.find((c) => c.id === id);

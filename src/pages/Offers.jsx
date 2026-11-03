@@ -10,7 +10,7 @@ import SectionHeading from "../components/ui/SectionHeading";
 
 import { useCart } from "../context/CartContext";
 import { offers } from "../data/offers";
-import { categories, products } from "../data/products";
+import { categories, getProductCartId, products } from "../data/products";
 
 const offerItems = offers.map((offer) => {
   const product = products.find(
@@ -48,7 +48,7 @@ const offerItems = offers.map((offer) => {
 
 export default function Offers() {
   const [filter, setFilter] = useState("all");
-  const { addItem } = useCart();
+  const { items, addItem, removeItem } = useCart();
 
   const visible = useMemo(() => {
     return offerItems.filter((offer) => {
@@ -91,43 +91,49 @@ export default function Offers() {
 
           {visible.length > 0 ? (
             <ProductGrid layout="offers">
-              {visible.map((offer) => (
-                <ProductCard
-                  key={offer.id}
-                  image={offer.image}
-                  alt={`صورة ${offer.title}`}
-                  category={offer.categoryLabel}
-                  title={offer.title}
-                  badge={{
-                    text:
-                      offer.discount > 0
-                        ? `خصم ${offer.discount}%`
-                        : "عرض خاص",
-                    tone: "discount",
-                  }}
-                  stock={{
-                    label: offer.lowStock
-                      ? "قطع محدودة"
-                      : "متوفر",
-                    low: offer.lowStock,
-                  }}
-                  price={offer.price}
-                  oldPrice={
-                    offer.oldPrice > offer.price
-                      ? offer.oldPrice
-                      : undefined
-                  }
-                  addLabel="أضف للسلة"
-                  onAdd={() =>
-                    addItem({
-                      id: offer.product?.id ?? offer.id,
-                      name: offer.title,
-                      price: offer.price,
-                      image: offer.image,
-                    })
-                  }
-                />
-              ))}
+              {visible.map((offer) => {
+                const cartId = offer.product ? getProductCartId(offer.product) : offer.id
+
+                return (
+                  <ProductCard
+                    key={offer.id}
+                    image={offer.image}
+                    alt={`صورة ${offer.title}`}
+                    category={offer.categoryLabel}
+                    title={offer.title}
+                    badge={{
+                      text:
+                        offer.discount > 0
+                          ? `خصم ${offer.discount}%`
+                          : "عرض خاص",
+                      tone: "discount",
+                    }}
+                    stock={{
+                      label: offer.lowStock
+                        ? "قطع محدودة"
+                        : "متوفر",
+                      low: offer.lowStock,
+                    }}
+                    price={offer.price}
+                    oldPrice={
+                      offer.oldPrice > offer.price
+                        ? offer.oldPrice
+                        : undefined
+                    }
+                    addLabel="أضف للسلة"
+                    isInCart={items.some((item) => item.id === cartId)}
+                    onAdd={() =>
+                      addItem({
+                        id: cartId,
+                        name: offer.title,
+                        price: offer.price,
+                        image: offer.image,
+                      })
+                    }
+                    onRemove={() => removeItem(cartId)}
+                  />
+                )
+              })}
             </ProductGrid>
           ) : (
             <EmptyState icon="tags">

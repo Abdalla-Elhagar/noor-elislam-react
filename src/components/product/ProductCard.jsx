@@ -32,7 +32,9 @@ export default function ProductCard({
   price,
   oldPrice,
   addLabel = 'أضف',
+  isInCart = false,
   onAdd,
+  onRemove,
 }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-line bg-white transition duration-300 hover:-translate-y-[5px] hover:border-gold hover:shadow-gold">
@@ -75,7 +77,12 @@ export default function ProductCard({
           </p>
         )}
 
-        <div className="mt-auto flex items-center justify-between gap-1.5 border-t border-[#f0eadc] pt-[13px] sm:gap-2">
+        <div
+          className={cn(
+            'mt-auto flex gap-1.5 border-t border-[#f0eadc] pt-[13px] sm:gap-2',
+            isInCart ? 'flex-col items-stretch' : 'items-center justify-between',
+          )}
+        >
           <div className="whitespace-nowrap text-[15px] font-extrabold text-gold-dark sm:text-lg">
             {price} ج.م
             {oldPrice && (
@@ -86,11 +93,16 @@ export default function ProductCard({
           </div>
           <button
             type="button"
-            onClick={onAdd}
-            className="btn-gold-gradient inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[10px] px-2 py-2 text-[11px] font-bold sm:px-3 sm:py-2.5 sm:text-xs"
+            onClick={isInCart ? onRemove : onAdd}
+            className={cn(
+              'inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-[10px] px-2 py-2 text-[10px] font-bold sm:gap-2 sm:px-3 sm:py-2.5 sm:text-xs',
+              isInCart
+                ? 'w-full border border-[#c34d4d]/30 bg-[#fff4f2] text-[#c34d4d] transition hover:bg-[#ffe7e3]'
+                : 'btn-gold-gradient',
+            )}
           >
-            <Icon name="plus" />
-            {addLabel}
+            <Icon name={isInCart ? 'trash' : 'plus'} />
+            {isInCart ? 'إزالة من السلة' : addLabel}
           </button>
         </div>
       </div>

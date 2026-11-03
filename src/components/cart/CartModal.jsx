@@ -6,13 +6,26 @@ import Button from '../ui/Button'
 import Icon from '../ui/Icon'
 import Modal from '../ui/Modal'
 
-function CartRow({ item, onRemove }) {
+function CartRow({ item, onRemove, onQuantityChange }) {
   return (
     <li className="flex items-center justify-between gap-2.5 border-b border-line py-3 text-[13px]">
-      <div>
+      <div className="min-w-0 flex-1">
         <strong>{item.name}</strong>
         <div className="mt-1 text-muted">
-          {item.quantity} × {formatPrice(item.price, 'ar-EG')}
+          <label className="inline-flex items-center gap-2">
+            الكمية
+            <input
+              type="number"
+              min="1"
+              step="1"
+              inputMode="numeric"
+              value={item.quantity}
+              onChange={(event) => onQuantityChange(item.id, Number(event.target.value))}
+              aria-label={`كمية ${item.name}`}
+              className="w-[72px] rounded-lg border border-line px-2 py-1 text-center text-ink"
+            />
+          </label>
+          <span className="ms-2">× {formatPrice(item.price, 'ar-EG')}</span>
         </div>
       </div>
       <div className="flex items-center gap-2">
@@ -31,7 +44,7 @@ function CartRow({ item, onRemove }) {
 }
 
 export default function CartModal() {
-  const { items, total, isOpen, closeCart, removeItem } = useCart()
+  const { items, total, isOpen, closeCart, removeItem, setQuantity } = useCart()
   const { showToast } = useToast()
 
   const handleCheckout = () => {
@@ -68,7 +81,12 @@ export default function CartModal() {
       ) : (
         <ul>
           {items.map((item) => (
-            <CartRow key={item.id} item={item} onRemove={removeItem} />
+            <CartRow
+              key={item.id}
+              item={item}
+              onRemove={removeItem}
+              onQuantityChange={setQuantity}
+            />
           ))}
         </ul>
       )}

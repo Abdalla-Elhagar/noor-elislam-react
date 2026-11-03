@@ -8,11 +8,16 @@ function cartReducer(items, action) {
     case 'add': {
       const exists = items.some((i) => i.id === action.item.id)
       return exists
-        ? items.map((i) => (i.id === action.item.id ? { ...i, quantity: i.quantity + 1 } : i))
+        ? items
         : [...items, { ...action.item, quantity: 1 }]
     }
     case 'remove':
       return items.filter((i) => i.id !== action.id)
+    case 'setQuantity':
+      if (!Number.isInteger(action.quantity) || action.quantity < 1) return items
+      return items.map((i) =>
+        i.id === action.id ? { ...i, quantity: action.quantity } : i,
+      )
     case 'clear':
       return []
     default:
@@ -33,6 +38,10 @@ export function CartProvider({ children }) {
     [showToast],
   )
   const removeItem = useCallback((id) => dispatch({ type: 'remove', id }), [])
+  const setQuantity = useCallback(
+    (id, quantity) => dispatch({ type: 'setQuantity', id, quantity }),
+    [],
+  )
   const clearCart = useCallback(() => dispatch({ type: 'clear' }), [])
   const openCart = useCallback(() => setIsOpen(true), [])
   const closeCart = useCallback(() => setIsOpen(false), [])
@@ -45,11 +54,12 @@ export function CartProvider({ children }) {
       isOpen,
       addItem,
       removeItem,
+      setQuantity,
       clearCart,
       openCart,
       closeCart,
     }),
-    [items, isOpen, addItem, removeItem, clearCart, openCart, closeCart],
+    [items, isOpen, addItem, removeItem, setQuantity, clearCart, openCart, closeCart],
   )
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
