@@ -59,15 +59,15 @@ export const products = [
     name: "     خلاط بانيو يوروستورم ",
     price: 7260,
     description: "الموديل:B7841AA ",
-    image: "/img/proImg/pro1111.jpeg",
+    image: "/img/proImg/PRO1111.jpeg",
   },
   {
     id: 1111,
     category: "mixers",
-    name: "    خلاط  يوروستورم حوض وش",
+    name: " خلاط  يوروستورم حوض وش",
     price: 7260,
     description: "الموديل:7835 ",
-    image: "/img/proImg/pro222.jpeg",
+    image: "/img/proImg/PRO222.jpeg",
   },
   {
     id: 2,
@@ -562,8 +562,6 @@ export const products = [
     image: "/img/proImg/bb4.jpeg",
   },
 
-
-
   {
     id: 76,
     category: "ceramic",
@@ -632,7 +630,6 @@ export const products = [
     description: "حله سمارت 45×70",
     image: "/img/proImg/hh5.jpeg",
   },
-
 
   {
     id: 96,
