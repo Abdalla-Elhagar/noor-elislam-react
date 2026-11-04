@@ -51,7 +51,7 @@ export const products = [
     name: "خلاط مطبخ بقنطرة عالية بحمامة - نظام 1",
     price: 7260,
     description: "الموديل: BC176AA",
-    image: "../../public/img//proImg/pro1.jpeg",
+    image: "/img/proImg/pro1.jpeg",
   },
   {
     id: 1111,
@@ -59,7 +59,7 @@ export const products = [
     name: "     خلاط بانيو يوروستورم ",
     price: 7260,
     description: "الموديل:B7841AA ",
-    image: "../../public/img//proImg/pro1111.jpeg",
+    image: "/img/proImg/pro1111.jpeg",
   },
   {
     id: 1111,
@@ -67,7 +67,7 @@ export const products = [
     name: "    خلاط  يوروستورم حوض وش",
     price: 7260,
     description: "الموديل:7835 ",
-    image: "../../public/img//proImg/pro222.jpeg",
+    image: "/img/proImg/pro222.jpeg",
   },
   {
     id: 2,
@@ -75,7 +75,7 @@ export const products = [
     name: "خلاط مطبخ بقنطرة عالية بحمامة - مصموم - نظام 2",
     price: 7430,
     description: "الموديل: BC178AA",
-    image: "../../public/img//proImg/pro2.jpeg",
+    image: "/img/proImg/pro2.jpeg",
   },
   {
     id: 3,
@@ -83,7 +83,7 @@ export const products = [
     name: "نيو سيرا فليكس - شجرة",
     price: 5930,
     description: "الموديل: BC958AA",
-    image: "../../public/img//proImg/pro3.jpeg",
+    image: "/img/proImg/pro3.jpeg",
   },
   {
     id: 4,
@@ -91,7 +91,7 @@ export const products = [
     name: "خلاط مطبخ معلق على الحائط - نيو سيرا فليكس",
     price: 4500,
     description: "الموديل: BC959AA",
-    image: "../../public/img//proImg/pro4.jpeg",
+    image: "/img/proImg/pro4.jpeg",
   },
 
   {
@@ -100,7 +100,7 @@ export const products = [
     name: "خلاط مطبخ ينبت على سطح أفقي (قنطرة للمطبخ) - سليم لاين",
     price: 4660,
     description: "الموديل: BC561AA",
-    image: "../../public/img//proImg/pro5.jpeg",
+    image: "/img/proImg/pro5.jpeg",
   },
   {
     id: 7,
@@ -108,7 +108,7 @@ export const products = [
     name: "خلاط مطبخ معلق - سليم لاين",
     price: 2950,
     description: "الموديل: B8599AA",
-    image: "../../public/img//proImg/pro6.jpeg",
+    image: "/img/proImg/pro6.jpeg",
   },
   {
     id: 8,
@@ -116,7 +116,7 @@ export const products = [
     name: "خلاط باتيو - سليم لاين",
     price: 4820,
     description: "الموديل: B8587",
-    image: "../../public/img//proImg/pro7.jpeg",
+    image: "/img/proImg/pro7.jpeg",
   },
   {
     id: 9,
@@ -124,7 +124,7 @@ export const products = [
     name: "خلاط حوض مع طابق وفايط - سليم لاين",
     price: 2540,
     description: "الموديل: B8577",
-    image: "../../public/img//proImg/pro8.jpeg",
+    image: "/img/proImg/pro8.jpeg",
   },
   {
     id: 10,
@@ -132,7 +132,7 @@ export const products = [
     name: "خلاط بانيو - ايديال ستريم",
     price: 4360,
     description: "الموديل: BC950AA",
-    image: "../../public/img//proImg/pro10.webp",
+    image: "/img/proImg/pro10.webp",
   },
   {
     id: 11,
@@ -140,7 +140,7 @@ export const products = [
     name: "خلاط حوض بقنطرة عالية",
     price: 4220,
     description: "الموديل: BC980AA",
-    image: "../../public/img//proImg/pro11.webp",
+    image: "/img/proImg/pro11.webp",
   },
   {
     id: 12,
@@ -148,7 +148,7 @@ export const products = [
     name: "خلاط حوض قلب سيراميك شجرة - ايديال ستريم",
     price: 2970,
     description: "الموديل: BC947AA",
-    image: "../../public/img//proImg/pro12.webp",
+    image: "/img/proImg/pro12.webp",
   },
   {
     id: 13,
@@ -156,7 +156,7 @@ export const products = [
     name: "خلاط حوض طويل سيراميك شجرة - نيو سيرا فليكس",
     price: 2820,
     description: "الموديل: B1708AA",
-    image: "../../public/img//proImg/pro13.webp",
+    image: "/img/proImg/pro13.webp",
   },
   {
     id: 14,
@@ -164,7 +164,7 @@ export const products = [
     name: "خلاط بانيو - نيو سيرا فليكس",
     price: 5090,
     description: "الموديل: BC957AA",
-    image: "../../public/img//proImg/pro14.webp",
+    image: "/img/proImg/pro14.webp",
   },
   {
     id: 15,
@@ -172,7 +172,7 @@ export const products = [
     name: "فردة خلاط شجرة حوض وش",
     price: 4295,
     description: "الموديل: ZC16U27C",
-    image: "../../public/img//proImg/pro15.webp",
+    image: "/img/proImg/pro15.webp",
   },
   {
     id: 16,
@@ -180,7 +180,7 @@ export const products = [
     name: "خلاط مطبخ غرز شداد 2 نظام",
     price: 4100,
     description: "الموديل: VJB569193C",
-    image: "../../public/img//proImg/pro16.webp",
+    image: "/img/proImg/pro16.webp",
   },
   {
     id: 17,
@@ -188,7 +188,7 @@ export const products = [
     name: "خلاط حوض شجرة",
     price: 3700,
     description: "الموديل: XA16X69C",
-    image: "../../public/img//proImg/pro17.webp",
+    image: "/img/proImg/pro17.webp",
   },
   {
     id: 18,
@@ -196,7 +196,7 @@ export const products = [
     name: "خلاط دش بانيو",
     price: 3235,
     description: "الموديل: DB23319C",
-    image: "../../public/img//proImg/pro18.webp",
+    image: "/img/proImg/pro18.webp",
   },
   {
     id: 19,
@@ -204,7 +204,7 @@ export const products = [
     name: "خلاط مطبخ غرز 2 - نظام",
     price: 4900,
     description: "الموديل: HV56V97C. السعر قبل الخصم",
-    image: "../../public/img//proImg/pro19.jpg",
+    image: "/img/proImg/pro19.jpg",
   },
   {
     id: 20,
@@ -212,7 +212,7 @@ export const products = [
     name: "خلاط مطبخ معلق",
     price: 3600,
     description: "الموديل: MA33Y70C-W67. السعر قبل الخصم",
-    image: "../../public/img//proImg/pro20.jpeg",
+    image: "/img/proImg/pro20.jpeg",
   }, // راجع
   {
     id: 21,
@@ -220,7 +220,7 @@ export const products = [
     name: "خلاط مطبخ غرز 2 - نظام",
     price: 4500,
     description: "الموديل: BZ56R75C-2548. السعر قبل الخصم",
-    image: "../../public/img//proImg/pro21.jpeg",
+    image: "/img/proImg/pro21.jpeg",
   },
   {
     id: 22,
@@ -229,7 +229,7 @@ export const products = [
     price: 3400,
     description:
       "الموديل: VNN148R44C. السعر قبل الخصم. ألوان أخرى: نيكل + اسود مط: 3850",
-    image: "../../public/img//proImg/pro22.jpeg",
+    image: "/img/proImg/pro22.jpeg",
   },
   {
     id: 23,
@@ -237,7 +237,7 @@ export const products = [
     name: "خلاط - شكل + اسود",
     price: 1550,
     description: "الموديل: GMJ-M01.  ",
-    image: "../../public/img//proImg/pro23.jpeg",
+    image: "/img/proImg/pro23.jpeg",
   },
 
   {
@@ -246,7 +246,7 @@ export const products = [
     name: "خلاط حوض ديكور اسود",
     price: 4150,
     description: "الموديل: VQR168R31PA",
-    image: "../../public/img//proImg/pro24.jpeg",
+    image: "/img/proImg/pro24.jpeg",
   },
   {
     id: 29,
@@ -254,7 +254,7 @@ export const products = [
     name: "خلاط دش ضلع - سيراميكس",
     price: 4820,
     description: "الموديل: G2003AA",
-    image: "../../public/img//proImg/pro25.jpg",
+    image: "/img/proImg/pro25.jpg",
   },
   {
     id: 30,
@@ -262,7 +262,7 @@ export const products = [
     name: "خلاط دش ضلع بدون محول - نيو سيرا فليكس",
     price: 4410,
     description: "الموديل: A6757AA",
-    image: "../../public/img//proImg/pro26.jpg",
+    image: "/img/proImg/pro26.jpg",
   },
 
   // {
@@ -473,7 +473,7 @@ export const products = [
     price: 1200,
     description:
       "يشمل: صيانة حوض - صيانة رف - ورقة - رف 50 سم - علاقة مفردة - فواطة بياموند",
-    image: "../../public/img//proImg/EX1.jpeg",
+    image: "/img/proImg/EX1.jpeg",
   },
   {
     id: 62,
@@ -481,7 +481,7 @@ export const products = [
     name: "طقم اكسسوار برسلين - ابيض برحوبه",
     price: 850,
     description: "سعر آخر: 790",
-    image: "../../public/img//proImg/ex2.jpeg",
+    image: "/img/proImg/ex2.jpeg",
   },
 
   // {
@@ -499,7 +499,7 @@ export const products = [
     name: "طقم اكسسوار 6 قطعة (مقبل) - روز جولد / اسود مط / ذهبي",
     price: 2750,
     description: "طقم اكسسوار 6 قطعة (مقبل) - روز جولد / اسود مط / ذهبي",
-    image: "../../public/img//proImg/ex3.jpeg",
+    image: "/img/proImg/ex3.jpeg",
   },
   {
     id: 655,
@@ -507,7 +507,7 @@ export const products = [
     name: "'طقم اكسسوار ايدال ",
     price: 1620,
     description: "",
-    image: "../../public/img//proImg/ex655.jpeg",
+    image: "/img/proImg/ex655.jpeg",
   },
 
   {
@@ -517,7 +517,7 @@ export const products = [
     price: 7500,
     description:
       "مرحاض معلق بالدوش والمقبض - سيديلي ذاتي الغلق - كونكت - ابيض برحوبه",
-    image: "../../public/img//proImg/bb1.jpeg",
+    image: "/img/proImg/bb1.jpeg",
   },
 
   {
@@ -526,23 +526,23 @@ export const products = [
     name: "طقم كامل صوفيا ايديال - حوض 62 - ابيض برحوبه",
     price: 6500,
     description: "طقم كامل صوفيا ايديال - حوض 62 - ابيض برحوبه",
-    image: "../../public/img//proImg/bb2.jpeg",
+    image: "/img/proImg/bb2.jpeg",
   },
-    {
+  {
     id: 69,
     category: "ceramic",
     name: "طقم فيجا ابيض سان بيور ",
     price: 1500,
     description: "طقم كامل صوفيا ايديال - حوض 62 - ابيض برحوبه",
-    image: "../../public/img//proImg/bb10.jpeg",
+    image: "/img/proImg/bb10.jpeg",
   },
-      {
+  {
     id: 69,
     category: "ceramic",
     name: "    قاعده لاسكو ",
     price: 1500,
     description: "قاعده لاسكو ",
-    image: "../../public/img//proImg/bb11.jpeg",
+    image: "/img/proImg/bb11.jpeg",
   },
   {
     id: 70,
@@ -550,7 +550,7 @@ export const products = [
     name: "طقم حمام نيو كابري 70 - ايديال - ابيض ذاتي الغلق - برحوبه",
     price: 12000,
     description: "طقم حمام نيو كابري 70 - ايديال - ابيض ذاتي الغلق - ",
-    image: "../../public/img//proImg/bb3.jpeg",
+    image: "/img/proImg/bb3.jpeg",
   },
   {
     id: 71,
@@ -559,10 +559,10 @@ export const products = [
     price: 8800,
     description:
       "طقم حمام كامل سان ريمو - بحوض 70 - ابيض ذاتي الغلق - ايديال - برحوبه",
-   image: "../../public/img//proImg/bb4.jpeg",
+    image: "/img/proImg/bb4.jpeg",
   },
 
-  
+
 
   {
     id: 76,
@@ -570,33 +570,33 @@ export const products = [
     name: "طقم حمام بليزا بيكلي 2 - ابيض برحوبه",
     price: 4900,
     description: "طقم حمام بليزا بيكلي 2 - ابيض برحوبه",
-   image: "../../public/img//proImg/bb5.jpeg",
+    image: "/img/proImg/bb5.jpeg",
   },
   {
     id: 77,
     category: "ceramic",
     name: "طقم حمام سوفت بليزا - ابيض برحوبه",
-    price:6800 ,
+    price: 6800,
     description: "طقم حمام سوفت بليزا - ابيض برحوبه",
-    image: "../../public/img//proImg/bb6.jpeg",
+    image: "/img/proImg/bb6.jpeg",
   },
-    {
+  {
     id: 77,
     category: "ceramic",
     name: " حوض اطاليانو",
-    price:2600 ,
+    price: 2600,
     description: "حوض اطاليانو ",
-    image: "../../public/img//proImg/bb7.jpeg",
+    image: "/img/proImg/bb7.jpeg",
   },
   {
     id: 92,
     category: "sinks",
     name: "حله مايه 51×85",
     price: 2700,
-   
+
     description: "  حله مايه 51×85",
-    image: "../../public/img//proImg/hh2.jpeg",
-   },
+    image: "/img/proImg/hh2.jpeg",
+  },
 
   {
     id: 92,
@@ -604,35 +604,35 @@ export const products = [
     name: "حلة هندميت 45×60",
     price: 1699,
     description: "حلة هندميت 45×60",
-    image: "../../public/img//proImg/hh1.jpeg",
-   },
-    {
+    image: "/img/proImg/hh1.jpeg",
+  },
+  {
     id: 92,
     category: "sinks",
     name: "حله مايه 51×74",
     price: 3400,
-   
+
     description: "  حله مايه 51×74",
-    image: "../../public/img//proImg/hh3.jpeg",
-   },
-      {
+    image: "/img/proImg/hh3.jpeg",
+  },
+  {
     id: 92,
     category: "sinks",
     name: "حله تركي 48×34",
     price: 3400,
-   
+
     description: "",
-    image: "../../public/img//proImg/hh4.jpeg",
-   },
-        {
+    image: "/img/proImg/hh4.jpeg",
+  },
+  {
     id: 92,
     category: "sinks",
     name: "حله سمارت 45×70",
     price: 3800,
-        description: "حله سمارت 45×70",
-    image: "../../public/img//proImg/hh5.jpeg",
-   },
-   
+    description: "حله سمارت 45×70",
+    image: "/img/proImg/hh5.jpeg",
+  },
+
 
   {
     id: 96,
@@ -640,16 +640,16 @@ export const products = [
     name: "حوض 86 بليزا فيولا",
     price: 2800,
     description: "حوض 86 بليزا فيولا",
-    image: "../../public/img//proImg/dd1.jpeg",
+    image: "/img/proImg/dd1.jpeg",
   },
-  
+
   {
     id: 99,
     category: "basins",
     name: "حوض 60 بليزا لاجو",
     price: 1800,
     description: "حوض 60 بليزا",
-    image: "../../public/img//proImg/dd2.jpeg",
+    image: "/img/proImg/dd2.jpeg",
   },
 
   {
@@ -658,7 +658,7 @@ export const products = [
     name: "حوض 80 سيلو",
     price: 2600,
     description: "حوض 80 سيلو",
-    image: "../../public/img//proImg/dd3.jpeg",
+    image: "/img/proImg/dd3.jpeg",
   },
   {
     id: 102,
@@ -666,32 +666,32 @@ export const products = [
     name: "حوض 80 سانا بيور",
     price: 3700,
     description: "حوض 80 سانا بيور",
- image: "../../public/img//proImg/dd4.jpeg",
+    image: "/img/proImg/dd4.jpeg",
   },
 
   {
     id: 105,
     category: "basins",
     name: "حوض سان بيور",
-    price:2800 ,
+    price: 2800,
     description: "حوض سان بيور",
-   image: "../../public/img//proImg/dd6.jpeg",
+    image: "/img/proImg/dd6.jpeg",
   },
-   {
+  {
     id: 105,
     category: "basins",
     name: "حوض  اسود",
     price: 2900,
     description: "حوض اسود ",
-   image: "../../public/img//proImg/dd7.jpeg",
+    image: "/img/proImg/dd7.jpeg",
   },
-     {
+  {
     id: 105,
     category: "basins",
     name: "حوض لاسكو",
     price: 2300,
     description: "حوض لاسكو ",
-   image: "../../public/img//proImg/dd8.jpeg",
+    image: "/img/proImg/dd8.jpeg",
   },
 ];
 
