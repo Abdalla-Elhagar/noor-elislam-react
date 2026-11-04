@@ -54,7 +54,7 @@ export const products = [
     image: "/img/proImg/pro1.jpeg",
   },
   {
-    id: B7841AA,
+    id: "B7841AA",
     category: "mixers",
     name: "     خلاط بانيو يوروستورم ",
     price: 7260,
