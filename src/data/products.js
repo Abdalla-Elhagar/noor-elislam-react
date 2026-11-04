@@ -54,7 +54,7 @@ export const products = [
     image: "/img/proImg/pro1.jpeg",
   },
   {
-    id: 1111,
+    id: B7841AA,
     category: "mixers",
     name: "     خلاط بانيو يوروستورم ",
     price: 7260,
@@ -62,7 +62,7 @@ export const products = [
     image: "/img/proImg/PRO1111.jpeg",
   },
   {
-    id: 1111,
+    id: 7835,
     category: "mixers",
     name: " خلاط  يوروستورم حوض وش",
     price: 7260,
