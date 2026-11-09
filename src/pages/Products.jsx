@@ -11,16 +11,15 @@ import SearchPanel from '../components/products/SearchPanel'
 import EmptyState from '../components/ui/EmptyState'
 import SectionHeading from '../components/ui/SectionHeading'
 
-import { categories, products } from '../data/products'
+import { categories, getProductPricing, products } from '../data/products'
 import { normalizeArabic } from '../utils/arabic'
 
-// عدد المنتجات في كل صفحة
-const ITEMS_PER_PAGE = 8
+const ITEMS_PER_PAGE_OPTIONS = [8, 16, 32]
 
 // طرق ترتيب المنتجات
 const sorters = {
-  low: (a, b) => a.price - b.price,
-  high: (a, b) => b.price - a.price,
+  low: (a, b) => getProductPricing(a).price - getProductPricing(b).price,
+  high: (a, b) => getProductPricing(b).price - getProductPricing(a).price,
   name: (a, b) => a.name.localeCompare(b.name, 'ar'),
   default: () => 0,
 }
@@ -31,6 +30,7 @@ export default function Products() {
   const [category, setCategory] = useState('all')
   const [sort, setSort] = useState('default')
   const [priceRange, setPriceRange] = useState({ min: '', max: '' })
+  const [itemsPerPage, setItemsPerPage] = useState(ITEMS_PER_PAGE_OPTIONS[0])
   const [currentPage, setCurrentPage] = useState(1)
   const [scrollTarget, setScrollTarget] = useState(null)
 
@@ -53,17 +53,17 @@ export default function Products() {
         category: c,
         items: products
           .filter((p) => {
-            const price = Number(p.price)
+            const discountedPrice = getProductPricing(p).price
             const hasPrice =
               p.price !== null &&
               p.price !== undefined &&
-              Number.isFinite(price)
+              Number.isFinite(discountedPrice)
 
             return (
               p.category === c.id &&
               normalizeArabic(p.name).includes(q) &&
-              (minPrice === null || (hasPrice && price >= minPrice)) &&
-              (maxPrice === null || (hasPrice && price <= maxPrice))
+              (minPrice === null || (hasPrice && discountedPrice >= minPrice)) &&
+              (maxPrice === null || (hasPrice && discountedPrice <= maxPrice))
             )
           })
           .sort(sorters[sort] || sorters.default),
@@ -76,6 +76,7 @@ export default function Products() {
     return groups.flatMap((group) =>
       group.items.map((item) => ({
         ...item,
+        ...getProductPricing(item),
         categoryInfo: group.category,
       }))
     )
@@ -83,7 +84,7 @@ export default function Products() {
 
   // إجمالي عدد الصفحات
   const totalPages = Math.ceil(
-    filteredProducts.length / ITEMS_PER_PAGE
+    filteredProducts.length / itemsPerPage
   )
 
   // ضمان أن الصفحة الحالية ضمن النطاق الصحيح
@@ -94,18 +95,18 @@ export default function Products() {
 
   // المنتجات المعروضة في الصفحة الحالية
   const paginatedProducts = useMemo(() => {
-    const start = (safeCurrentPage - 1) * ITEMS_PER_PAGE
+    const start = (safeCurrentPage - 1) * itemsPerPage
 
     return filteredProducts.slice(
       start,
-      start + ITEMS_PER_PAGE
+      start + itemsPerPage
     )
-  }, [filteredProducts, safeCurrentPage])
+  }, [filteredProducts, safeCurrentPage, itemsPerPage])
 
   // إعادة الصفحة الأولى عند تغيير البحث أو القسم أو الترتيب
   useEffect(() => {
     setCurrentPage(1)
-  }, [query, category, sort, priceRange])
+  }, [query, category, sort, priceRange, itemsPerPage])
 
   // تجميع المنتجات المعروضة حسب الأقسام
   const paginatedGroups = useMemo(() => {
@@ -204,15 +205,22 @@ export default function Products() {
 
           {/* Products */}
           {paginatedGroups.length > 0 ? (
-            <div className="space-y-8">
-              {paginatedGroups.map((group) => (
-                <CategorySection
-                  key={group.category.id}
-                  category={group.category}
-                  products={group.items}
-                />
-              ))}
-            </div>
+            category === 'all' ? (
+              <CategorySection
+                products={paginatedProducts}
+                showHeading={false}
+              />
+            ) : (
+              <div className="space-y-8">
+                {paginatedGroups.map((group) => (
+                  <CategorySection
+                    key={group.category.id}
+                    category={group.category}
+                    products={group.items}
+                  />
+                ))}
+              </div>
+            )
           ) : (
             <EmptyState
               icon={invalidPriceRange ? 'alert' : 'box'}
@@ -229,39 +237,53 @@ export default function Products() {
           )}
 
           {/* Pagination */}
-          {totalPages > 1 && (
+          {filteredProducts.length > 0 && (
             <div className="mt-12 flex flex-col items-center gap-5">
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                {/* Products Count */}
+                <p className="text-sm text-muted">
+                  عرض
+                  <span className="mx-1 font-bold text-gold">
+                    {(safeCurrentPage - 1) * itemsPerPage + 1}
+                  </span>
 
-              {/* Products Count */}
-              <p className="text-sm text-muted">
-                عرض
-                <span className="mx-1 font-bold text-gold">
-                  {(safeCurrentPage - 1) * ITEMS_PER_PAGE + 1}
-                </span>
+                  إلى
 
-                إلى
+                  <span className="mx-1 font-bold text-gold">
+                    {Math.min(
+                      safeCurrentPage * itemsPerPage,
+                      filteredProducts.length
+                    )}
+                  </span>
 
-                <span className="mx-1 font-bold text-gold">
-                  {Math.min(
-                    safeCurrentPage * ITEMS_PER_PAGE,
-                    filteredProducts.length
-                  )}
-                </span>
+                  من
 
-                من
+                  <span className="mx-1 font-bold text-ink">
+                    {filteredProducts.length}
+                  </span>
 
-                <span className="mx-1 font-bold text-ink">
-                  {filteredProducts.length}
-                </span>
+                  منتج
+                </p>
 
-                منتج
-              </p>
+                <label className="flex items-center gap-2 text-sm text-muted">
+                  عدد المنتجات في الصفحة
+                  <select
+                    value={itemsPerPage}
+                    onChange={(event) => setItemsPerPage(Number(event.target.value))}
+                    className="rounded-lg border border-line bg-white px-3 py-2 text-ink focus:border-gold focus:outline-none"
+                  >
+                    {ITEMS_PER_PAGE_OPTIONS.map((count) => (
+                      <option key={count} value={count}>{count}</option>
+                    ))}
+                  </select>
+                </label>
+              </div>
 
-              {/* Pagination Buttons */}
-              <div
-                className="flex flex-wrap items-center justify-center gap-2"
-                dir="rtl"
-              >
+              {totalPages > 1 && (
+                <div
+                  className="flex flex-wrap items-center justify-center gap-2"
+                  dir="rtl"
+                >
 
                 {/* Previous Button */}
                 <button
@@ -336,8 +358,8 @@ export default function Products() {
                 >
                   ❯
                 </button>
-
-              </div>
+                </div>
+              )}
             </div>
           )}
 

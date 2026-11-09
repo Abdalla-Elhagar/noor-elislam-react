@@ -1,19 +1,23 @@
-import { cn } from '../../utils/cn'
-import Icon from '../ui/Icon'
+import { cn } from "../../utils/cn";
+import Icon from "../ui/Icon";
 
 const badgeTones = {
-  default: 'bg-gold-soft text-[#765711]',
-  sale: 'bg-[#fff0d6] text-[#a76a17]',
-  discount: 'bg-[#fff0d6] text-[#a76a17]',
-}
+  default: "bg-gold-soft text-[#765711]",
+  sale: "bg-[#fff0d6] text-[#a76a17]",
+  discount: "bg-[#fff0d6] text-[#a76a17]",
+};
 
 function Rating({ stars, value }) {
   return (
-    <div className="mb-[13px] text-xs text-gold-bright" aria-label={`التقييم ${value} من 5`}>
-      {'★'.repeat(stars)}
-      {'☆'.repeat(5 - stars)} <span className="me-1 text-[#77847b]">({value})</span>
+    <div
+      className="mb-[13px] text-xs text-gold-bright"
+      aria-label={`التقييم ${value} من 5`}
+    >
+      {"★".repeat(stars)}
+      {"☆".repeat(5 - stars)}{" "}
+      <span className="me-1 text-[#77847b]">({value})</span>
     </div>
-  )
+  );
 }
 
 /**
@@ -31,7 +35,7 @@ export default function ProductCard({
   stock,
   price,
   oldPrice,
-  addLabel = 'أضف',
+  addLabel = "أضف",
   isInCart = false,
   onAdd,
   onRemove,
@@ -42,8 +46,8 @@ export default function ProductCard({
         {badge && (
           <span
             className={cn(
-              'absolute right-3 top-3 z-10 rounded-lg px-[9px] py-[5px] text-[11px] font-extrabold',
-              badgeTones[badge.tone ?? 'default'],
+              "absolute right-3 top-3 z-10 rounded-lg px-[9px] py-[5px] text-[11px] font-extrabold",
+              badgeTones[badge.tone ?? "default"],
             )}
           >
             {badge.text}
@@ -58,14 +62,22 @@ export default function ProductCard({
       </div>
 
       <div className="flex flex-1 flex-col p-3 sm:p-4">
-        <span className="mb-[7px] text-[11px] font-extrabold text-gold-dark">{category}</span>
-        <h3 className="mb-2 min-h-12 text-[13px] font-extrabold leading-[1.8] sm:text-[15px]">{title}</h3>
+        {category && (
+          <span className="mb-[7px] text-[11px] font-extrabold text-gold-dark">
+            {category}
+          </span>
+        )}
+        <h3 className="mb-2 min-h-12 text-[13px] font-extrabold leading-[1.8] sm:text-[15px]">
+          {title}
+        </h3>
 
         {description && (
-          <p className="mb-2.5 min-h-[42px] text-xs leading-[1.8] text-muted">{description}</p>
+          <p className="mb-2.5 min-h-[42px] text-xs leading-[1.8] text-muted">
+            {description}
+          </p>
         )}
-        {rating && <Rating {...rating} />}
-        {stock && (
+        {/* {rating && <Rating {...rating} />} */}
+        {/* {stock && (
           <p
             className={cn(
               'mb-[13px] flex items-center gap-1.5 text-[11px] font-bold',
@@ -75,37 +87,39 @@ export default function ProductCard({
             <Icon name={stock.low ? 'alert' : 'checkCircle'} className="text-[10px]" />
             {stock.label}
           </p>
-        )}
+        )} */}
 
         <div
           className={cn(
-            'mt-auto flex gap-1.5 border-t border-[#f0eadc] pt-[13px] sm:gap-2',
-            isInCart ? 'flex-col items-stretch' : 'items-center justify-between',
+            "mt-auto flex gap-1.5 border-t border-[#f0eadc] pt-[13px] sm:gap-2",
+            isInCart
+              ? "flex-col items-stretch"
+              : "items-center justify-between",
           )}
         >
           <div className="whitespace-nowrap text-[15px] font-extrabold text-gold-dark sm:text-lg">
-            {price} ج.م
             {oldPrice && (
               <span className="block text-[11px] font-medium text-[#9b9587] line-through">
                 {oldPrice} ج.م
               </span>
             )}
+            {price} ج.م
           </div>
           <button
             type="button"
             onClick={isInCart ? onRemove : onAdd}
             className={cn(
-              'inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-[10px] px-2 py-2 text-[10px] font-bold sm:gap-2 sm:px-3 sm:py-2.5 sm:text-xs',
+              "inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-[10px] px-2 py-2 text-[10px] font-bold sm:gap-2 sm:px-3 sm:py-2.5 sm:text-xs",
               isInCart
-                ? 'w-full border border-[#c34d4d]/30 bg-[#fff4f2] text-[#c34d4d] transition hover:bg-[#ffe7e3]'
-                : 'btn-gold-gradient',
+                ? "w-full border border-[#c34d4d]/30 bg-[#fff4f2] text-[#c34d4d] transition hover:bg-[#ffe7e3]"
+                : "btn-gold-gradient",
             )}
           >
-            <Icon name={isInCart ? 'trash' : 'plus'} />
-            {isInCart ? 'إزالة من السلة' : addLabel}
+            <Icon name={isInCart ? "trash" : "plus"} />
+            {isInCart ? "إزالة من السلة" : addLabel}
           </button>
         </div>
       </div>
     </article>
-  )
+  );
 }
