@@ -61,7 +61,7 @@ export const products = [
     price: 7260,
     discount: 0,
     description: "الموديل:B7841AA ",
-    image: "img/proImg/pro1111.jpeg",
+    image: "img/proImg/pro11111.jpeg",
   },
   {
     id: 1111,
@@ -70,7 +70,7 @@ export const products = [
     price: 7260,
     discount: 0,
     description: "الموديل:7835 ",
-    image: "img/proImg/pro222.jpeg",
+    image: "img/proImg/pro2222.jpeg",
   },
 
   {
