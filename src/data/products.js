@@ -72,6 +72,7 @@ export const products = [
     description: "الموديل:7835 ",
     image: "img/proImg/pro222.jpeg",
   },
+
   {
     id: 2,
     category: "mixers",
