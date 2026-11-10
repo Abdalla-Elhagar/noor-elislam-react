@@ -51,6 +51,10 @@ export function CartProvider({ children }) {
       items,
       count: items.reduce((sum, i) => sum + i.quantity, 0),
       total: items.reduce((sum, i) => sum + i.price * i.quantity, 0),
+      originalTotal: items.reduce(
+        (sum, i) => sum + Math.max(i.price, i.oldPrice ?? i.price) * i.quantity,
+        0,
+      ),
       isOpen,
       addItem,
       removeItem,

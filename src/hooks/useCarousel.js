@@ -7,13 +7,42 @@ import { useCallback, useEffect, useState } from 'react'
 export default function useCarousel({ length, interval = 5000 }) {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
+  const [direction, setDirection] = useState('next')
 
   const goTo = useCallback(
-    (i) => setIndex(((i % length) + length) % length),
-    [length],
+    (i) => {
+      const target = ((i % length) + length) % length
+      const forwardDistance = (target - index + length) % length
+      const backwardDistance = (index - target + length) % length
+
+      if (target === index) return
+      setDirection(forwardDistance <= backwardDistance ? 'next' : 'prev')
+      setIndex(target)
+    },
+    [index, length],
   )
-  const next = useCallback(() => setIndex((i) => (i + 1) % length), [length])
-  const prev = useCallback(() => setIndex((i) => (i - 1 + length) % length), [length])
+  const next = useCallback(() => {
+    setDirection('next')
+    setIndex((i) => (i + 1) % length)
+  }, [length])
+  const prev = useCallback(() => {
+    setDirection('prev')
+    setIndex((i) => (i - 1 + length) % length)
+  }, [length])
+  const getSlideOffset = useCallback(
+    (slideIndex) => {
+      if (slideIndex === index || length < 2) return 0
+      const adjacentIndex =
+        direction === 'next'
+          ? (index - 1 + length) % length
+          : (index + 1) % length
+      if (slideIndex === adjacentIndex) {
+        return direction === 'next' ? -100 : 100
+      }
+      return direction === 'next' ? 100 : -100
+    },
+    [direction, index, length],
+  )
 
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -32,5 +61,5 @@ export default function useCarousel({ length, interval = 5000 }) {
     },
   }
 
-  return { index, next, prev, goTo, hoverProps }
+  return { index, next, prev, goTo, getSlideOffset, hoverProps }
 }

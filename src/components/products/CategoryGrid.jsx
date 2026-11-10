@@ -10,14 +10,14 @@ const allCategories = [
 
 export default function CategoryGrid({ selected, onSelect }) {
   return (
-    <section id="categories" className="py-[38px] md:py-[55px]">
+    <section id="categories" className="hidden py-[38px] md:block md:py-[55px]">
       <div className="container-x">
         <SectionHeading
           icon="layers"
           title="تسوق حسب القسم"
           description="اختار القسم المناسب وشوف كل المنتجات الموجودة فيه"
         />
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 min-[480px]:grid-cols-3 md:grid-cols-4 2xl:grid-cols-7">
           {allCategories.map((cat) => {
             const active = selected === cat.id
             return (
@@ -27,7 +27,7 @@ export default function CategoryGrid({ selected, onSelect }) {
                 aria-pressed={active}
                 onClick={() => onSelect(cat.id)}
                 className={cn(
-                  'group block h-full rounded-[18px] border px-2 py-[18px] text-center transition duration-300 hover:-translate-y-1 hover:border-gold hover:bg-gold-light md:py-[22px]',
+                  'group flex min-h-[130px] h-full flex-col items-center justify-center rounded-[18px] border px-2 py-[18px] text-center transition duration-300 hover:-translate-y-1 hover:border-gold hover:bg-gold-light md:py-[22px]',
                   active ? 'border-gold bg-gold-light' : 'border-line bg-white',
                 )}
               >

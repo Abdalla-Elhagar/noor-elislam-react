@@ -4,15 +4,16 @@ import { cn } from "../../utils/cn";
 import Button from "../ui/Button";
 import { SliderArrow, SliderDots } from "../ui/SliderControls";
 
-function HeroSlide({ slide, active, first }) {
+function HeroSlide({ slide, active, first, offset }) {
   const Heading = first ? "h1" : "h2";
   return (
     <div
       aria-hidden={!active}
       className={cn(
-        "absolute inset-0 flex items-center transition-opacity duration-700",
+        "absolute inset-0 flex items-center transition-[opacity,transform] duration-700",
         active ? "z-[1] opacity-100" : "pointer-events-none opacity-0",
       )}
+      style={{ transform: `translateX(${offset}%)` }}
     >
       <img
         src={slide.image}
@@ -55,7 +56,7 @@ function HeroSlide({ slide, active, first }) {
 }
 
 export default function HeroSlider() {
-  const { index, next, prev, goTo, hoverProps } = useCarousel({
+  const { index, next, prev, goTo, getSlideOffset, hoverProps } = useCarousel({
     length: homeSlides.length,
   });
 
@@ -74,6 +75,7 @@ export default function HeroSlider() {
             slide={slide}
             active={i === index}
             first={i === 0}
+            offset={getSlideOffset(i)}
           />
         ))}
 

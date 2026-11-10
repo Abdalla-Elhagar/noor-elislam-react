@@ -19,6 +19,14 @@ export const categories = [
     description: "أطقم اكسسوار الحمام بمكوناتها",
   },
   {
+    id: "mirrors",
+    icon: "sparkles",
+    label: "المرايات",
+    hint: "مرايات حمام",
+    title: "المرايات",
+    description: "مرايات حمام بتصميمات متنوعة",
+  },
+  {
     id: "ceramic",
     icon: "medical",
     label: "الصيني",
@@ -355,6 +363,7 @@ export const products = [
     description: "الموديل: HY3105006",
     image: "img/proImg/pro40.jpeg",
   },
+  /*
   {
     id: 41,
     category: "mixers",
@@ -526,6 +535,7 @@ export const products = [
     description: "الموديل: A6706AA",
     image: "img/proImg",
   },
+  */
 
   {
     id: 61,
@@ -608,7 +618,7 @@ export const products = [
     price: 13000,
     discount: 50,
     description: "الموديل: صوفيا",
-    image: "img/proImg/pro69.jpeg",
+    image: "img/proImg/pro69.webp",
   },
   {
     id: 70,
@@ -709,6 +719,7 @@ export const products = [
     description: "الموديل: البيرو",
     image: "img/proImg/pro80.jpeg",
   },
+  /*
   {
     id: 81,
     category: "sinks",
@@ -954,6 +965,52 @@ export const products = [
     discount: 0,
     description: "حوض اطاليوم  ",
     image: "img/proImg",
+  },
+  */
+  {
+    id: 106,
+    category: "mirrors",
+    name: "مرايا دكتور جريش - ٤ملي - 85 x 60 - تاتش 3 ألوان",
+    price: 1300,
+    discount: 0,
+    description: "",
+    image: "img/proImg/pro106.jpeg",
+  },
+  {
+    id: 107,
+    category: "mirrors",
+    name: "مرايا دكتور جريش - ٤ملي - 80 x 80 - تاتش 3ألوان",
+    price: 1200,
+    discount: 0,
+    description: "",
+    image: "img/proImg/pro107.jpeg",
+  },
+  {
+    id: 108,
+    category: "mirrors",
+    name: "مرايا دكتور جريش  - ٤ملي - 90 x 60 - تاتش 3 الوان",
+    price: 1100,
+    discount: 0,
+    description: "",
+    image: "img/proImg/pro108.jpeg",
+  },
+  {
+    id: 109,
+    category: "mirrors",
+    name: "مرايا دكتور جريش - ٤ملي - 85 x 60 - تاتش 3 الوان",
+    price: 1300,
+    discount: 0,
+    description: "",
+    image: "img/proImg/pro109.jpeg",
+  },
+  {
+    id: 110,
+    category: "mirrors",
+    name: "مرايا دكتور جريش - ٤ملي - 85 x 60 - تاتش 3 الوان",
+    price: 1300,
+    discount: 0,
+    description: "",
+    image: "img/proImg/pro110.jpeg",
   },
 ];
 

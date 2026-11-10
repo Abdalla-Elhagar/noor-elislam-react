@@ -44,7 +44,15 @@ function CartRow({ item, onRemove, onQuantityChange }) {
 }
 
 export default function CartModal() {
-  const { items, total, isOpen, closeCart, removeItem, setQuantity } = useCart()
+  const {
+    items,
+    total,
+    originalTotal,
+    isOpen,
+    closeCart,
+    removeItem,
+    setQuantity,
+  } = useCart()
   const { showToast } = useToast()
 
   const handleCheckout = () => {
@@ -64,7 +72,8 @@ export default function CartModal() {
       .join('\n\n')
     const message =
       `السلام عليكم، أرغب في طلب المنتجات التالية:\n\n${orderDetails}\n\n` +
-      `إجمالي الطلب: ${formatPrice(total, 'ar-EG')}\n` +
+      `الإجمالي قبل الخصم: ${formatPrice(originalTotal, 'ar-EG')}\n` +
+      `الإجمالي بعد الخصم: ${formatPrice(total, 'ar-EG')}\n` +
       'يرجى تأكيد الطلب والتوصيل. شكرًا لكم.'
     const whatsappUrl = `https://wa.me/${contactInfo.phone}?text=${encodeURIComponent(message)}`
 
@@ -91,9 +100,18 @@ export default function CartModal() {
         </ul>
       )}
 
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-4 flex items-center justify-between gap-4">
         <strong>الإجمالي:</strong>
-        <strong className="text-xl text-gold-dark">{formatPrice(total, 'ar-EG')}</strong>
+        <div className="text-end">
+          {originalTotal > total && (
+            <div className="text-sm text-muted line-through">
+              {formatPrice(originalTotal, 'ar-EG')}
+            </div>
+          )}
+          <strong className="text-xl text-gold-dark">
+            {formatPrice(total, 'ar-EG')}
+          </strong>
+        </div>
       </div>
 
       <Button variant="gradient" onClick={handleCheckout} className="mt-3 w-full px-4 py-[11px]">

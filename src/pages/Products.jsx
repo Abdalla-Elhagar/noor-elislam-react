@@ -15,6 +15,21 @@ import { categories, getProductPricing, products } from '../data/products'
 import { normalizeArabic } from '../utils/arabic'
 
 const ITEMS_PER_PAGE_OPTIONS = [8, 16, 32]
+const ITEMS_PER_PAGE_STORAGE_KEY = 'noor-elislam-products-per-page'
+
+function getSavedItemsPerPage() {
+  try {
+    const savedValue = Number(
+      window.localStorage.getItem(ITEMS_PER_PAGE_STORAGE_KEY),
+    )
+    return ITEMS_PER_PAGE_OPTIONS.includes(savedValue)
+      ? savedValue
+      : ITEMS_PER_PAGE_OPTIONS[0]
+  } catch (error) {
+    console.warn('تعذر قراءة عدد المنتجات المحفوظ من التخزين المحلي.', error)
+    return ITEMS_PER_PAGE_OPTIONS[0]
+  }
+}
 
 // طرق ترتيب المنتجات
 const sorters = {
@@ -30,7 +45,7 @@ export default function Products() {
   const [category, setCategory] = useState('all')
   const [sort, setSort] = useState('default')
   const [priceRange, setPriceRange] = useState({ min: '', max: '' })
-  const [itemsPerPage, setItemsPerPage] = useState(ITEMS_PER_PAGE_OPTIONS[0])
+  const [itemsPerPage, setItemsPerPage] = useState(getSavedItemsPerPage)
   const [currentPage, setCurrentPage] = useState(1)
   const [scrollTarget, setScrollTarget] = useState(null)
 
@@ -107,6 +122,17 @@ export default function Products() {
   useEffect(() => {
     setCurrentPage(1)
   }, [query, category, sort, priceRange, itemsPerPage])
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        ITEMS_PER_PAGE_STORAGE_KEY,
+        String(itemsPerPage),
+      )
+    } catch (error) {
+      console.warn('تعذر حفظ عدد المنتجات في التخزين المحلي.', error)
+    }
+  }, [itemsPerPage])
 
   // تجميع المنتجات المعروضة حسب الأقسام
   const paginatedGroups = useMemo(() => {

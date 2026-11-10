@@ -1,141 +1,151 @@
 import { useMemo, useState } from "react";
 
 import OffersHero from "../components/offers/OffersHero";
-import PromoFilters from "../components/offers/PromoFilters";
 import ProductCard from "../components/product/ProductCard";
 import ProductGrid from "../components/product/ProductGrid";
 import EmptyState from "../components/ui/EmptyState";
 import SectionHeading from "../components/ui/SectionHeading";
 
 import { useCart } from "../context/CartContext";
-import { offers } from "../data/offers";
-import { categories, getProductCartId, products } from "../data/products";
+import {
+  categories,
+  getProductCartId,
+  getProductPricing,
+  products,
+} from "../data/products";
 
-const offerItems = offers.map((offer) => {
-  const product = products.find(
-    (p) => String(p.id) === String(offer.productId),
-  );
+const MIN_HERO_DISCOUNT = 30;
+const fallbackImage = "/img/4.jpeg";
 
-  const category = categories.find((c) => c.id === product?.category);
+const discountedProducts = products
+  .filter((product) => Number(product.discount) > 0)
+  .map((product) => {
+    const category = categories.find((item) => item.id === product.category);
+    const pricing = getProductPricing(product);
+    const hasProductImage =
+      typeof product.image === "string" &&
+      product.image.startsWith("img/") &&
+      product.image !== "img/proImg";
 
-  const price = Number(offer.price) || 0;
+    return {
+      ...product,
+      ...pricing,
+      discount: Number(product.discount),
+      categoryLabel: category?.label || "منتجات متنوعة",
+      image: hasProductImage ? `/${product.image}` : fallbackImage,
+      imageAlt: hasProductImage ? product.name : "صورة توضيحية من المعرض",
+    };
+  });
 
-  const oldPrice = Number(
-    offer.oldPrice ?? product?.oldPrice ?? product?.price ?? 0,
-  );
-
-  const discount =
-    oldPrice > price && oldPrice > 0
-      ? Math.round(((oldPrice - price) / oldPrice) * 100)
-      : 0;
-
-  return {
-    ...offer,
-    product,
-    title: product?.name || offer.name || "منتج",
-    image: product?.image || "",
-    categoryLabel:
-      category?.label ||
-      (offer.filters?.includes("pots") ? "الحلة" : "الخلاطات"),
-    price,
-    oldPrice,
-    discount,
-  };
-});
+const highestDiscount = Math.max(
+  0,
+  ...discountedProducts.map((product) => product.discount),
+);
+const featuredDiscountedProduct = discountedProducts
+  .filter((product) => product.imageAlt === product.name)
+  .sort((a, b) => b.discount - a.discount)[0];
 
 export default function Offers() {
-  const [filter, setFilter] = useState("all");
+  const [minimumDiscount, setMinimumDiscount] = useState(0);
   const { items, addItem, removeItem } = useCart();
 
-  const visible = useMemo(() => {
-    return offerItems.filter((offer) => {
-      if (filter === "all") return true;
+  const visibleProducts = useMemo(
+    () =>
+      discountedProducts.filter(
+        (product) => product.discount >= minimumDiscount,
+      ),
+    [minimumDiscount],
+  );
 
-      return Array.isArray(offer.filters) && offer.filters.includes(filter);
+  const showDiscountedProducts = () => {
+    setMinimumDiscount(MIN_HERO_DISCOUNT);
+    document.getElementById("offersProducts")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
     });
-  }, [filter]);
+  };
 
   return (
     <>
-      <OffersHero />
-      {/* 
-      <PromoFilters
-        active={filter}
-        onChange={setFilter}
+      <OffersHero
+        maxDiscount={highestDiscount}
+        featuredProduct={featuredDiscountedProduct}
+        onShowDiscounted={showDiscountedProducts}
       />
 
       <section
         id="offersProducts"
-        className="pb-12 pt-[18px] md:pb-[70px] md:pt-[22px]"
+        className="scroll-mt-24 pb-12 pt-[18px] md:pb-[70px] md:pt-[22px]"
       >
         <div className="container-x">
           <SectionHeading
             icon="tags"
-            title="عروض تستحق التجربة"
-            description="استمتع بأفضل الأسعار والخصومات على منتجاتنا"
+            title="منتجات عليها خصومات"
+            description="تصفح المنتجات المخفضة واختر العرض المناسب لك"
             action={
               <span
                 className="whitespace-nowrap text-xs font-bold text-gold-dark"
                 aria-live="polite"
               >
-                {visible.length} عروض
+                {visibleProducts.length} منتجات
               </span>
             }
           />
 
-          {visible.length > 0 ? (
+          {minimumDiscount > 0 && (
+            <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-gold/30 bg-gold-light px-4 py-3 text-sm">
+              <span>عرض المنتجات بخصم {minimumDiscount}% فأكثر</span>
+              <button
+                type="button"
+                onClick={() => setMinimumDiscount(0)}
+                className="font-bold text-gold-dark underline underline-offset-4"
+              >
+                عرض كل الخصومات
+              </button>
+            </div>
+          )}
+
+          {visibleProducts.length > 0 ? (
             <ProductGrid layout="offers">
-              {visible.map((offer) => {
-                const cartId = offer.product ? getProductCartId(offer.product) : offer.id
+              {visibleProducts.map((product) => {
+                const cartId = getProductCartId(product);
 
                 return (
                   <ProductCard
-                    key={offer.id}
-                    image={offer.image}
-                    alt={`صورة ${offer.title}`}
-                    category={offer.categoryLabel}
-                    title={offer.title}
+                    key={cartId}
+                    image={product.image}
+                    alt={product.imageAlt}
+                    category={product.categoryLabel}
+                    title={product.name}
                     badge={{
-                      text:
-                        offer.discount > 0
-                          ? `خصم ${offer.discount}%`
-                          : "عرض خاص",
+                      text: `خصم ${product.discount}%`,
                       tone: "discount",
                     }}
-                    stock={{
-                      label: offer.lowStock
-                        ? "قطع محدودة"
-                        : "متوفر",
-                      low: offer.lowStock,
-                    }}
-                    price={offer.price}
-                    oldPrice={
-                      offer.oldPrice > offer.price
-                        ? offer.oldPrice
-                        : undefined
-                    }
+                    price={product.price}
+                    oldPrice={product.oldPrice}
                     addLabel="أضف للسلة"
                     isInCart={items.some((item) => item.id === cartId)}
                     onAdd={() =>
                       addItem({
                         id: cartId,
-                        name: offer.title,
-                        price: offer.price,
-                        image: offer.image,
+                        name: product.name,
+                        price: product.price,
+                        oldPrice: product.oldPrice,
+                        image: product.image,
                       })
                     }
                     onRemove={() => removeItem(cartId)}
                   />
-                )
+                );
               })}
             </ProductGrid>
           ) : (
             <EmptyState icon="tags">
-              لا توجد منتجات ضمن هذا العرض حاليًا.
+              لا توجد منتجات بخصم {minimumDiscount}% فأكثر حاليًا.
             </EmptyState>
           )}
         </div>
-      </section> */}
+      </section>
     </>
   );
 }

@@ -39,7 +39,15 @@ export default function CategorySection({ category, products, showHeading = true
               price={p.price}
               oldPrice={p.oldPrice}
               isInCart={items.some((item) => item.id === cartId)}
-              onAdd={() => addItem({ id: cartId, name: p.name, price: p.price })}
+              onAdd={() =>
+                addItem({
+                  id: cartId,
+                  name: p.name,
+                  price: p.price,
+                  oldPrice: p.oldPrice,
+                  image: p.image,
+                })
+              }
               onRemove={() => removeItem(cartId)}
             />
           )
