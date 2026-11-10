@@ -52,7 +52,7 @@ export const products = [
     price: 7260,
     discount: 0,
     description: "الموديل: BC176AA",
-    image: "../../public/img/proImg/pro1.jpeg",
+    image: "img/proImg/pro1.jpeg",
   },
   {
     id: 1111,
@@ -61,7 +61,7 @@ export const products = [
     price: 7260,
     discount: 0,
     description: "الموديل:B7841AA ",
-    image: "../../public/img/proImg/pro1111.jpeg",
+    image: "img/proImg/pro1111.jpeg",
   },
   {
     id: 1111,
@@ -70,7 +70,7 @@ export const products = [
     price: 7260,
     discount: 0,
     description: "الموديل:7835 ",
-    image: "../../public/img/proImg/pro222.jpeg",
+    image: "img/proImg/pro222.jpeg",
   },
   {
     id: 2,
@@ -79,7 +79,7 @@ export const products = [
     price: 7430,
     discount: 0,
     description: "الموديل: BC178AA",
-    image: "../../public/img/proImg/pro2.jpeg",
+    image: "img/proImg/pro2.jpeg",
   },
   {
     id: 3,
@@ -88,7 +88,7 @@ export const products = [
     price: 5930,
     discount: 0,
     description: "الموديل: BC958AA",
-    image: "../../public/img/proImg/pro3.jpeg",
+    image: "img/proImg/pro3.jpeg",
   },
   {
     id: 4,
@@ -97,7 +97,7 @@ export const products = [
     price: 4500,
     discount: 0,
     description: "الموديل: BC959AA",
-    image: "../../public/img/proImg/pro4.jpeg",
+    image: "img/proImg/pro4.jpeg",
   },
 
   {
@@ -107,7 +107,7 @@ export const products = [
     price: 4660,
     discount: 0,
     description: "الموديل: BC561AA",
-    image: "../../public/img/proImg/pro5.jpeg",
+    image: "img/proImg/pro5.jpeg",
   },
   {
     id: 7,
@@ -116,7 +116,7 @@ export const products = [
     price: 2950,
     discount: 0,
     description: "الموديل: B8599AA",
-    image: "../../public/img/proImg/pro6.jpeg",
+    image: "img/proImg/pro6.jpeg",
   },
   {
     id: 8,
@@ -125,7 +125,7 @@ export const products = [
     price: 4820,
     discount: 0,
     description: "الموديل: B8587",
-    image: "../../public/img/proImg/pro7.jpeg",
+    image: "img/proImg/pro7.jpeg",
   },
   {
     id: 9,
@@ -134,7 +134,7 @@ export const products = [
     price: 2540,
     discount: 0,
     description: "الموديل: B8577",
-    image: "../../public/img/proImg/pro8.jpeg",
+    image: "img/proImg/pro8.jpeg",
   },
   {
     id: 10,
@@ -143,7 +143,7 @@ export const products = [
     price: 4360,
     discount: 0,
     description: "الموديل: BC950AA",
-    image: "../../public/img/proImg/pro10.webp",
+    image: "img/proImg/pro10.webp",
   },
   {
     id: 11,
@@ -152,7 +152,7 @@ export const products = [
     price: 4220,
     discount: 0,
     description: "الموديل: BC980AA",
-    image: "../../public/img/proImg/pro11.webp",
+    image: "img/proImg/pro11.webp",
   },
   {
     id: 12,
@@ -161,7 +161,7 @@ export const products = [
     price: 2970,
     discount: 0,
     description: "الموديل: BC947AA",
-    image: "../../public/img/proImg/pro12.webp",
+    image: "img/proImg/pro12.webp",
   },
   {
     id: 13,
@@ -170,7 +170,7 @@ export const products = [
     price: 2820,
     discount: 0,
     description: "الموديل: B1708AA",
-    image: "../../public/img/proImg/pro13.webp",
+    image: "img/proImg/pro13.webp",
   },
   {
     id: 14,
@@ -179,7 +179,7 @@ export const products = [
     price: 5090,
     discount: 0,
     description: "الموديل: BC957AA",
-    image: "../../public/img/proImg/pro14.webp",
+    image: "img/proImg/pro14.webp",
   },
   {
     id: 15,
@@ -188,7 +188,7 @@ export const products = [
     price: 4295,
     discount: 0,
     description: "الموديل: ZC16U27C",
-    image: "../../public/img/proImg/pro15.webp",
+    image: "img/proImg/pro15.webp",
   },
   {
     id: 16,
@@ -197,7 +197,7 @@ export const products = [
     price: 4100,
     discount: 0,
     description: "الموديل: VJB569193C",
-    image: "../../public/img/proImg/pro16.webp",
+    image: "img/proImg/pro16.webp",
   },
   {
     id: 17,
@@ -206,7 +206,7 @@ export const products = [
     price: 3700,
     discount: 0,
     description: "الموديل: XA16X69C",
-    image: "../../public/img/proImg/pro17.webp",
+    image: "img/proImg/pro17.webp",
   },
   {
     id: 18,
@@ -215,7 +215,7 @@ export const products = [
     price: 3235,
     discount: 0,
     description: "الموديل: DB23319C",
-    image: "../../public/img/proImg/pro18.webp",
+    image: "img/proImg/pro18.webp",
   },
   {
     id: 19,
@@ -224,7 +224,7 @@ export const products = [
     price: 4900,
     discount: 0,
     description: "الموديل: HV56V97C. السعر قبل الخصم",
-    image: "../../public/img/proImg/pro19.webp",
+    image: "img/proImg/pro19.webp",
   },
   {
     id: 20,
@@ -233,7 +233,7 @@ export const products = [
     price: 3600,
     discount: 0,
     description: "الموديل: MA33Y70C-W67. السعر قبل الخصم",
-    image: "../../public/img/proImg/pro20.jpeg",
+    image: "img/proImg/pro20.jpeg",
   }, // راجع
   {
     id: 21,
@@ -242,7 +242,7 @@ export const products = [
     price: 4500,
     discount: 0,
     description: "الموديل: BZ56R75C-2548. السعر قبل الخصم",
-    image: "../../public/img/proImg/pro21.jpeg",
+    image: "img/proImg/pro21.jpeg",
   },
   {
     id: 22,
@@ -252,7 +252,7 @@ export const products = [
     discount: 0,
     description:
       "الموديل: VNN148R44C. السعر قبل الخصم. ألوان أخرى: نيكل + اسود مط: 3850",
-    image: "../../public/img/proImg/pro22.jpeg",
+    image: "img/proImg/pro22.jpeg",
   },
   {
     id: 23,
@@ -261,7 +261,7 @@ export const products = [
     price: 1550,
     discount: 0,
     description: "الموديل: GMJ-M01.  ",
-    image: "../../public/img/proImg/pro23.jpeg",
+    image: "img/proImg/pro23.jpeg",
   },
 
   {
@@ -271,7 +271,7 @@ export const products = [
     price: 4150,
     discount: 0,
     description: "الموديل: VQR168R31PA",
-    image: "../../public/img/proImg/pro24.jpeg",
+    image: "img/proImg/pro24.jpeg",
   },
   {
     id: 25,
@@ -280,7 +280,7 @@ export const products = [
     price: 4820,
     discount: 0,
     description: "الموديل: G2003AA",
-    image: "../../public/img/proImg/pro25.jpg",
+    image: "img/proImg/pro25.jpg",
   },
   {
     id: 26,
@@ -289,7 +289,7 @@ export const products = [
     price: 4410,
     discount: 0,
     description: "الموديل: A6757AA",
-    image: "../../public/img/proImg/pro26.jpg",
+    image: "img/proImg/pro26.jpg",
   },
   {
     id: 27,
@@ -298,7 +298,7 @@ export const products = [
     price: 2800,
     discount: 0,
     description: "الموديل: GMJ-M01.  ",
-    image: "../../public/img/proImg/pro27.jpeg",
+    image: "img/proImg/pro27.jpeg",
   },
   {
     id: 35,
@@ -307,7 +307,7 @@ export const products = [
     price: 2700,
     discount: 0,
     description: "الموديل: بلازا تيربو",
-    image: "../../public/img/proImg/pro35.jpeg",
+    image: "img/proImg/pro35.jpeg",
   },
   {
     id: 36,
@@ -316,7 +316,7 @@ export const products = [
     price: 2800,
     discount: 0,
     description: "الموديل: جاما",
-    image: "../../public/img/proImg/pro36.jpeg",
+    image: "img/proImg/pro36.jpeg",
   },
   {
     id: 37,
@@ -325,7 +325,7 @@ export const products = [
     price: 2400,
     discount: 0,
     description: "الموديل: جولد",
-    image: "../../public/img/proImg/pro37.jpeg",
+    image: "img/proImg/pro37.jpeg",
   },
   {
     id: 38,
@@ -334,7 +334,7 @@ export const products = [
     price: 3200,
     discount: 0,
     description: "الموديل: احمر",
-    image: "../../public/img/proImg/pro38.jpeg",
+    image: "img/proImg/pro38.jpeg",
   },
   {
     id: 39,
@@ -343,7 +343,7 @@ export const products = [
     price: 3600,
     discount: 0,
     description: "الموديل: بني",
-    image: "../../public/img/proImg/pro39.jpeg",
+    image: "img/proImg/pro39.jpeg",
   },
   {
     id: 40,
@@ -352,7 +352,7 @@ export const products = [
     price: 2050,
     discount: 5,
     description: "الموديل: HY3105006",
-    image: "../../public/img/proImg/pro40.jpeg",
+    image: "img/proImg/pro40.jpeg",
   },
   {
     id: 41,
@@ -361,7 +361,7 @@ export const products = [
     price: 2492,
     discount: 0,
     description: "خلاط ضلع 1 مخرج + اسمارت SH - مربع اسود",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 42,
@@ -370,7 +370,7 @@ export const products = [
     price: 2000,
     discount: 0,
     description: "ألوان أخرى: نيكل + اسود: 2275",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 43,
@@ -379,7 +379,7 @@ export const products = [
     price: 2445,
     discount: 0,
     description: "ألوان أخرى: نيكل: 2445 / اسود: 2880",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 44,
@@ -388,7 +388,7 @@ export const products = [
     price: 208,
     discount: 0,
     description: "خلاط جولد",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   }, // راجع
   {
     id: 45,
@@ -397,7 +397,7 @@ export const products = [
     price: 505,
     discount: 0,
     description: "خلاط جولد اليت",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   }, // راجع
   {
     id: 46,
@@ -406,7 +406,7 @@ export const products = [
     price: 7245,
     discount: 0,
     description: "الموديل: B1872AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   }, // راجع
   {
     id: 47,
@@ -415,7 +415,7 @@ export const products = [
     price: 5880,
     discount: 0,
     description: "الموديل: BC953AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 48,
@@ -424,7 +424,7 @@ export const products = [
     price: 4470,
     discount: 0,
     description: "الموديل: B7833AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 49,
@@ -433,7 +433,7 @@ export const products = [
     price: 4220,
     discount: 0,
     description: "الموديل: B1713AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 50,
@@ -442,7 +442,7 @@ export const products = [
     price: 7440,
     discount: 0,
     description: "الموديل: B7835AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   }, // راجع
   {
     id: 51,
@@ -451,7 +451,7 @@ export const products = [
     price: 6220,
     discount: 0,
     description: "الموديل: B7041AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 52,
@@ -460,7 +460,7 @@ export const products = [
     price: 5410,
     discount: 0,
     description: "الموديل: BC691AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 53,
@@ -469,7 +469,7 @@ export const products = [
     price: 5750,
     discount: 0,
     description: "الموديل: BC692AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 54,
@@ -478,7 +478,7 @@ export const products = [
     price: 8715,
     discount: 0,
     description: "الموديل: BC071AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 55,
@@ -487,7 +487,7 @@ export const products = [
     price: 5600,
     discount: 0,
     description: "الموديل: BC941AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 56,
@@ -496,7 +496,7 @@ export const products = [
     price: 4780,
     discount: 0,
     description: "الموديل: G7503AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 57,
@@ -505,7 +505,7 @@ export const products = [
     price: 6270,
     discount: 0,
     description: "الموديل: BC944AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 58,
@@ -514,7 +514,7 @@ export const products = [
     price: 5860,
     discount: 0,
     description: "الموديل: G7801AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   }, // راجع
   {
     id: 59,
@@ -523,7 +523,7 @@ export const products = [
     price: 4150,
     discount: 0,
     description: "الموديل: A6706AA",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
 
   {
@@ -534,7 +534,7 @@ export const products = [
     discount: 0,
     description:
       "يشمل: صيانة حوض - صيانة رف - ورقة - رف 50 سم - علاقة مفردة - فواطة بياموند",
-    image: "../../public/img/proImg/EX1.jpeg",
+    image: "img/proImg/EX1.jpeg",
   },
   {
     id: 62,
@@ -543,7 +543,7 @@ export const products = [
     price: 850,
     discount: 0,
     description: "سعر البرجمون: 870",
-    image: "../../public/img/proImg/ex2.jpeg",
+    image: "img/proImg/ex2.jpeg",
   },
 
   // {
@@ -553,7 +553,7 @@ export const products = [
   //   price: null,
   //   description:
   //     "يشمل: صيانة حوض - 1 صيانة حوض زجاج - 1 حامل كاسة - فواطة دائرية - علاقة مزدوجة - علاقة 5 فرع - فواطة 60 سم - ورقة - رف زجاج - حامل صابون سائل - مرايا مكبرة",
-  //   image: "../../public/img/proImg",
+  //   image: "img/proImg",
   // },
   {
     id: 65,
@@ -562,7 +562,7 @@ export const products = [
     price: 2750,
     discount: 0,
     description: "طقم اكسسوار 6 قطعة (مقبل) - روز جولد / اسود مط / ذهبي",
-    image: "../../public/img/proImg/ex3.jpeg",
+    image: "img/proImg/ex3.jpeg",
   },
   {
     id: 655,
@@ -571,7 +571,7 @@ export const products = [
     price: 1620,
     discount: 0,
     description: "",
-    image: "../../public/img/proImg/ex655.jpeg",
+    image: "img/proImg/ex655.jpeg",
   },
   {
     id: 66,
@@ -580,7 +580,7 @@ export const products = [
     price: 12600,
     discount: 26,
     description: "الموديل: تونك",
-    image: "../../public/img/proImg/pro66.jpeg",
+    image: "img/proImg/pro66.jpeg",
   },
   {
     id: 67,
@@ -589,7 +589,7 @@ export const products = [
     price: 9475,
     discount: 25,
     description: "الموديل: كونكت",
-    image: "../../public/img/proImg/pro67.jpeg",
+    image: "img/proImg/pro67.jpeg",
   },
   {
     id: 68,
@@ -598,7 +598,7 @@ export const products = [
     price: 7290,
     discount: 25,
     description: "الموديل: بلايا",
-    image: "../../public/img/proImg/pro68.jpeg",
+    image: "img/proImg/pro68.jpeg",
   },
   {
     id: 69,
@@ -607,7 +607,7 @@ export const products = [
     price: 13000,
     discount: 50,
     description: "الموديل: صوفيا",
-    image: "../../public/img/proImg/pro69.jpeg",
+    image: "img/proImg/pro69.jpeg",
   },
   {
     id: 70,
@@ -616,7 +616,7 @@ export const products = [
     price: 16240,
     discount: 25,
     description: "الموديل: نيو كابري",
-    image: "../../public/img/proImg/pro70.jpeg",
+    image: "img/proImg/pro70.jpeg",
   },
   {
     id: 71,
@@ -625,7 +625,7 @@ export const products = [
     price: 15080,
     discount: 25,
     description: "الموديل: كيميرا",
-    image: "../../public/img/proImg/pro71.jpeg",
+    image: "img/proImg/pro71.jpeg",
   },
   {
     id: 72,
@@ -634,7 +634,7 @@ export const products = [
     price: 4470,
     discount: 23,
     description: "الموديل: اي لايف",
-    image: "../../public/img/proImg/pro72.jpeg",
+    image: "img/proImg/pro72.jpeg",
   },
   {
     id: 73,
@@ -643,7 +643,7 @@ export const products = [
     price: 11500,
     discount: 0,
     description: "الموديل: تايتيل",
-    image: "../../public/img/proImg/pro73.jpeg",
+    image: "img/proImg/pro73.jpeg",
   },
   {
     id: 74,
@@ -652,7 +652,7 @@ export const products = [
     price: 11110,
     discount: 10,
     description: "الموديل: فيجا",
-    image: "../../public/img/proImg/pro74.jpeg",
+    image: "img/proImg/pro74.jpeg",
   },
   {
     id: 75,
@@ -661,7 +661,7 @@ export const products = [
     price: 6960,
     discount: 20,
     description: "الموديل: فيجا",
-    image: "../../public/img/proImg/pro75.jpeg",
+    image: "img/proImg/pro75.jpeg",
   },
   {
     id: 76,
@@ -670,7 +670,7 @@ export const products = [
     price: 9900,
     discount: 50,
     description: "الموديل: بيكلي",
-    image: "../../public/img/proImg/pro76.jpeg",
+    image: "img/proImg/pro76.jpeg",
   },
   {
     id: 77,
@@ -679,7 +679,7 @@ export const products = [
     price: 6050,
     discount: 0,
     description: "الموديل: سوفت",
-    image: "../../public/img/proImg/pro77.jpeg",
+    image: "img/proImg/pro77.jpeg",
   },
   {
     id: 78,
@@ -688,7 +688,7 @@ export const products = [
     price: 11850,
     discount: 25,
     description: "الموديل: سان ريمو",
-    image: "../../public/img/proImg/pro78.jpeg",
+    image: "img/proImg/pro78.jpeg",
   },
   {
     id: 79,
@@ -697,7 +697,7 @@ export const products = [
     price: 6400,
     discount: 0,
     description: "الموديل: ",
-    image: "../../public/img/proImg/pro79.jpeg",
+    image: "img/proImg/pro79.jpeg",
   },
   {
     id: 80,
@@ -706,7 +706,7 @@ export const products = [
     price: 5500,
     discount: 0,
     description: "الموديل: البيرو",
-    image: "../../public/img/proImg/pro80.jpeg",
+    image: "img/proImg/pro80.jpeg",
   },
   {
     id: 81,
@@ -715,7 +715,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حلة 40×50 - تركي الاصلي",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 82,
@@ -724,7 +724,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حلة 40×50 - تركي 32",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 83,
@@ -733,7 +733,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حلة 40×50 - مصري بلازا",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 84,
@@ -742,7 +742,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حلة تركي 85×50 - مايا تركي",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 85,
@@ -752,7 +752,7 @@ export const products = [
     oldPrice: 2800,
     discount: 21,
     description: "حلة 80×50 - تركي",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
     badge: "عرض",
     badgeSale: true,
   },
@@ -763,7 +763,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حلة تركي 40×7 - مايا",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   }, // راجع
   {
     id: 87,
@@ -772,7 +772,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حلة بلازا 66×50 - مصري بلازا",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 88,
@@ -781,7 +781,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حلة تركي 42×50 - تركي الاصلي",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 89,
@@ -791,7 +791,7 @@ export const products = [
     oldPrice: 4500,
     discount: 51,
     description: "حلة + اسمارت (دائري)",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
     badge: "عرض",
     badgeSale: true,
   },
@@ -803,7 +803,7 @@ export const products = [
     oldPrice: 8000,
     discount: 19,
     description: "حلة + اسمارت 45×70",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
     badge: "عرض",
     badgeSale: true,
   },
@@ -815,7 +815,7 @@ export const products = [
     oldPrice: 2200,
     discount: 14,
     description: "حلة هندميت 45×70",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
     badge: "عرض",
     badgeSale: true,
   },
@@ -827,7 +827,7 @@ export const products = [
     oldPrice: 2000,
     discount: 15,
     description: "حلة هندميت 45×60",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
     badge: "عرض",
     badgeSale: true,
   },
@@ -839,7 +839,7 @@ export const products = [
     oldPrice: 2900,
     discount: 24,
     description: "حلة هندميت كامل 45×70",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
     badge: "عرض",
     badgeSale: true,
   },
@@ -851,7 +851,7 @@ export const products = [
     oldPrice: 1600,
     discount: 12,
     description: "حلة هندميت 45×40",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
     badge: "عرض",
     badgeSale: true,
   },
@@ -862,7 +862,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض 86 بليزا",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 96,
@@ -871,7 +871,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض 86 بليزا",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 97,
@@ -880,7 +880,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض 80 بليزا",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 98,
@@ -889,7 +889,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض 60 بليزا",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 99,
@@ -898,7 +898,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض 60 بليزا",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 100,
@@ -907,7 +907,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض 60 بليزا",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 101,
@@ -916,7 +916,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض 80 سيلو",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 102,
@@ -925,7 +925,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض 80 سانا بيور",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 103,
@@ -934,7 +934,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض 60 سيلو",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 104,
@@ -943,7 +943,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض 60 سيلو",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
   {
     id: 105,
@@ -952,7 +952,7 @@ export const products = [
     price: null,
     discount: 0,
     description: "حوض اطاليوم  ",
-    image: "../../public/img/proImg",
+    image: "img/proImg",
   },
 ];
 
