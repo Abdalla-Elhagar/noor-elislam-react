@@ -27,10 +27,11 @@ export default function SearchPanel({
 }) {
   const [isPriceFilterOpen, setIsPriceFilterOpen] = useState(false)
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false)
+  const hasActiveFilters = hasPriceFilter || sort !== 'default'
 
   return (
-    <div className="mb-[30px] grid grid-cols-[minmax(0,1fr)_auto] gap-2 rounded-[18px] border border-line bg-white p-3 sm:gap-3 sm:p-[18px] lg:grid-cols-[minmax(220px,1fr)_180px_200px_auto]">
-      <div className="relative col-span-1 min-w-0 lg:col-span-1">
+    <div className="mb-[30px] grid grid-cols-2 gap-2 rounded-[18px] border border-line bg-white p-3 sm:gap-3 sm:p-[18px] lg:grid-cols-[minmax(220px,1fr)_180px_200px_auto]">
+      <div className="relative col-span-2 min-w-0 lg:col-span-1">
         <Icon name="search" className="absolute start-4 top-1/2 -translate-y-1/2 text-[#87958b]" />
         <input
           type="search"
@@ -42,20 +43,35 @@ export default function SearchPanel({
         />
       </div>
 
+      <label className="block min-w-0 md:hidden">
+        <span className="mb-1.5 block text-xs font-bold text-muted">الصنف</span>
+        <select
+          value={category}
+          onChange={(e) => onCategory(e.target.value)}
+          aria-label="تصفية حسب الصنف"
+          className={`${fieldClass} w-full min-w-0`}
+        >
+          <option value="all">كل الأصناف</option>
+          {categories.map((c) => (
+            <option key={c.id} value={c.id}>{c.label}</option>
+          ))}
+        </select>
+      </label>
+
       <button
         type="button"
         aria-expanded={isMobileFiltersOpen}
         aria-controls="mobile-product-filters"
         onClick={() => setIsMobileFiltersOpen((open) => !open)}
-        className={`inline-flex h-[46px] items-center justify-center gap-2 rounded-[11px] border px-3 text-[13px] font-bold lg:hidden ${
-          isMobileFiltersOpen || hasPriceFilter
+        className={`mt-[22px] inline-flex h-[46px] items-center justify-center gap-2 self-end rounded-[11px] border px-3 text-[13px] font-bold lg:hidden ${
+          isMobileFiltersOpen || hasActiveFilters
             ? 'border-gold bg-gold-light text-gold-dark'
             : 'border-line bg-white text-ink'
         }`}
       >
         <Icon name="filter" className="text-sm" />
         <span>الفلاتر</span>
-        {hasPriceFilter && (
+        {hasActiveFilters && (
           <span className="rounded-full bg-gold-dark px-1.5 py-0.5 text-[10px] text-white">
             مفعّلة
           </span>
@@ -66,18 +82,6 @@ export default function SearchPanel({
         id="mobile-product-filters"
         className={`${isMobileFiltersOpen ? 'grid' : 'hidden'} col-span-2 gap-3 rounded-xl border border-line bg-cream/60 p-3 lg:hidden`}
       >
-        <select
-          value={category}
-          onChange={(e) => onCategory(e.target.value)}
-          aria-label="تصفية حسب القسم"
-          className={`${fieldClass} w-full min-w-0`}
-        >
-          <option value="all">كل الأقسام</option>
-          {categories.map((c) => (
-            <option key={c.id} value={c.id}>{c.label}</option>
-          ))}
-        </select>
-
         <select
           value={sort}
           onChange={(e) => onSort(e.target.value)}
@@ -159,18 +163,6 @@ export default function SearchPanel({
           </div>
         )}
       </div>
-
-      <select
-        value={category}
-        onChange={(e) => onCategory(e.target.value)}
-        aria-label="تصفية حسب القسم"
-        className={`${fieldClass} hidden w-full min-w-0 lg:block`}
-      >
-        <option value="all">كل الأقسام</option>
-        {categories.map((c) => (
-          <option key={c.id} value={c.id}>{c.label}</option>
-        ))}
-      </select>
 
       <select
         value={sort}

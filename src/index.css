@@ -41,6 +41,10 @@
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
+  .brand-loader-ring,
+  .brand-loader-progress {
+    animation: none !important;
+  }
 }
 
 /* ===== الخط الذهبي المتحرك فوق الفوتر ===== */
@@ -67,6 +71,58 @@
   }
   100% {
     transform: translateX(300%);
+  }
+}
+
+/* ===== تحميل الصفحات ===== */
+.brand-loader-logo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 98px;
+  height: 98px;
+}
+.brand-loader-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #c49a35 80deg,
+    #f5e6b3 150deg,
+    transparent 210deg,
+    #c49a35 360deg
+  );
+  animation: brandLoaderSpin 1.25s linear infinite;
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 3px),
+    #000 calc(100% - 1.5px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 3px),
+    #000 calc(100% - 1.5px)
+  );
+}
+.brand-loader-progress {
+  animation: brandLoaderProgress 1.15s ease-in-out infinite;
+}
+@keyframes brandLoaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes brandLoaderProgress {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(260%);
   }
 }
 
