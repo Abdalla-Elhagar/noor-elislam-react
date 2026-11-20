@@ -17,7 +17,7 @@ export default function Newsletter() {
         <div>
           <h2 className="mb-2.5 text-2xl font-extrabold">خليك دايمًا على اطلاع</h2>
           <p className="text-[13px] leading-[1.9] text-[#fff7e3]">
-            اشترك ببريدك الإلكتروني لتصلك آخر المنتجات والعروض الجديدة.
+            اشترك ببريدك الإلكتروني لتصلك أحدث عروض الأدوات الصحية ومستلزمات الحمام.
           </p>
         </div>
         <form onSubmit={handleSubmit} className="flex max-w-[440px] flex-col gap-2 sm:flex-row lg:w-full">
